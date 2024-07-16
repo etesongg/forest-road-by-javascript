@@ -69,3 +69,48 @@ function xmlToJson(xml) {
     }
     return obj;
 }
+
+window.addEventListener('load', function () {
+    var allElements = document.getElementsByTagName('*');
+    Array.prototype.forEach.call(allElements, function (el) {
+        var includePath = el.dataset.includePath;
+        if (includePath) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    el.outerHTML = this.responseText;
+                }
+            };
+            xhttp.open('GET', includePath, true);
+            xhttp.send();
+        }
+    });
+});
+function includeHTML() {
+    const headerDiv = document.getElementById("headerDiv");
+    const footerDiv = document.getElementById("footerDiv");
+
+    if (headerDiv) {
+        fetch("layout/navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                headerDiv.innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error fetching header:', error);
+            });
+    }
+
+    if (footerDiv) {
+        fetch("layout/footer.html")
+            .then(response => response.text())
+            .then(data => {
+                footerDiv.innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error fetching footer:', error);
+            });
+    }
+}
+
+document.addEventListener("DOMContentLoaded", includeHTML);
