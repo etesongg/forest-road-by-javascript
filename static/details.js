@@ -35,9 +35,10 @@ const displayMntInfoFigure = (MntImgFile) => {
 }
 
 const displayMntInfoArticle = (info) => {
+    const mntiDetails = info.mntiDetails.length >= 300? `${info.mntiDetails.slice(0,300)}...`: info.mntiDetails
     document.querySelector(".details-mnt-information article").innerHTML = `
         <h5><b>${info.mntiName}</b></h5>
         <p><span>고도 |</span> <span>${info.mntiHigh}m</span></p>
         <p><span>지역 |</span> <span>${info.mntiRegion}</span></p>
-        <p><span>소개 |</span> <span>${info.mntiDetails}</span></p>`;
+        <p><span>소개 |</span> <span>${mntiDetails}</span></p>`;
 }
