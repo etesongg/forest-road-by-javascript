@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>오늘의 숲길</title>
-    <link rel="stylesheet" href="main.style.css">
+    <link rel="stylesheet" href="1. style.css">
 </head>
-
 <body>
-
     <section class="main-recommendation-section">
         <div class="main-recommendation">
             <div class="main-recommendation-text">
                 <p>이번엔</p>
-                <h1>‘추천장소’</h1>
+                <h1 id="mountain-name">‘추천장소’</h1>
                 <p>어때요</p>
                 <br>
                 <button class="main-recommendation-details-button">자세히보기</button>
             </div>
             <div class="main-recommendation-weather">
-                <div class="city">서울</div>
-                <div class="temperature">30.3</div>
-                <div class="graph">그래프</div>
+                <div class="city" id="city">서울</div>
+                <div class="temperature" id="temperature">30.3</div>
+                <div class="graph" id="weather-status">흐림</div>
             </div>
         </div>
     </section>
@@ -34,16 +31,12 @@
 
     <section class="main-mountain-list-section">
         <h3>Title1</h3>
-        <div class="main-mountain-list-container">
-            <button class="prev">&#10094;</button>
-            <div class="main-mountain-list-item">
-                <h4>북한산</h4>
-                <p>마우스 hover 하면<br>날씨 정보 보여주기</p>
-                <p>북한산의 정보</p>
+        <div class="main-mountain-list-container" id="main-mountain-list-container">
+            <button class="prev" id="prev-btn">&#10094;</button>
+            <div class="main-mountain-list" id="main-mountain-list">
+                <!-- 산 목록 아이템들이 여기에 추가됩니다 -->
             </div>
-            <div class="main-mountain-list-item"></div>
-            <div class="main-mountain-list-item"></div>
-            <button class="next">&#10095;</button>
+            <button class="next" id="next-btn">&#10095;</button>
         </div>
     </section>
 
@@ -82,6 +75,6 @@
         </div>
     </section>
 
+    <script src="1. script.js"></script>
 </body>
-
 </html>
