@@ -1,116 +1,97 @@
-const Api_Key = 'KMGHDGTtYyp8ZQ6PslEt0FGSzsPPNayDVL8SfwGe9yZtqZFk5BMQ9U8763MgRzvc5QykfH9fxyf1ZovtRuDkyQ==';
-const apiUrl = 'https://apis.data.go.kr/1400000/service/cultureInfoService2/mntInfoOpenAPI2';
+document.addEventListener('DOMContentLoaded', function() {
+    const apiUrl = 'http://openapi.forest.go.kr/openapi/service/cultureInfoService/gdTrailInfoOpenAPI';
+    const imageApiUrl = 'http://openapi.forest.go.kr/openapi/service/cultureInfoService/gdTrailInfoImgOpenAPI';
+    const serviceKey = '키 값 넣는 곳';
+    const itemsPerPage = 6; // 페이지당 항목 수
+    let currentPage = 1; // 현재 페이지 번호
+    const noImageUrl = 'https://via.placeholder.com/200?text=No+Image'; // "No Image" 이미지 URL
 
-const getLatestNews = async () => {
-    const url = new URL(apiUrl);
-    url.searchParams.append('ServiceKey', Api_Key);
+    // 산 데이터를 가져오는 함수
+    function fetchMountains(page) {
+        // API 호출 URL 생성
+        const url = `${apiUrl}?serviceKey=${serviceKey}&pageNo=${page}&numOfRows=${itemsPerPage}&_type=json`;
 
-    try {
-        const response = await fetch(url);
-        console.log(response);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const xmlString = await response.text();
-        let XmlNode = new DOMParser().parseFromString(xmlString, "text/xml");
-        console.log(xmlToJson(XmlNode));
-
-    } catch (error) {
-        console.error('Error fetching the API:', error);
+        // API 호출
+        fetch(url)
+            .then(response => response.json()) // JSON 형태로 응답을 파싱
+            .then(data => {
+                console.log('Fetched data:', data); // 가져온 데이터 콘솔에 출력
+                displayMountains(data.response.body.items.item); // 산 데이터를 화면에 표시
+                setupPagination(data.response.body.totalCount, page); // 페이지네이션 설정
+            })
+            .catch(error => console.error('Error fetching data:', error)); // 에러 처리
     }
-};
 
-getLatestNews();
+    // 산 데이터를 화면에 표시하는 함수
+    function displayMountains(mountains) {
+        const mountainList = document.getElementById('main-mountain-list-container'); // 산 목록을 표시할 HTML 요소
+        mountainList.innerHTML = ''; // 기존 내용을 초기화
 
-function xmlToJson(xml) {
-    // Create the return object
-    var obj = {};
+        mountains.forEach(mountain => {
+            // 각 산에 대해 이미지를 가져오는 함수 호출
+            fetchImage(mountain.mntncd)
+                .then(imageUrl => {
+                    const mountainItem = document.createElement('div');
+                    mountainItem.className = 'mountain-item';
+                    mountainItem.innerHTML = `
+                    
+                        <div class="main-mountain-list-item" style="background-image: url(${imageUrl})">
+                            <div class="main-mountain-list-overlay">
+                                <h3>${mountain.subnm}</h3> <!-- 산 부제 -->
+                                <p>지역: ${mountain.areanm}</p> <!-- 지역명 -->
+                                <p>높이: ${mountain.mntheight}m</p> <!-- 산 높이 -->
+                            </div>
+                        </div>
+                        <div class="main-mountain-list-item-title">
+                        <h2>${mountain.mntnm}</h2> <!-- 산 이름 -->
+                        </div>
+                    `;
+                    mountainList.appendChild(mountainItem); // 산 항목을 목록에 추가
+                })
+                .catch(error => console.error('Error fetching image:', error));
+        });
+    }
 
-    if (xml.nodeType == 1) {
-        // element
-        // do attributes
-        if (xml.attributes.length > 0) {
-            obj["@attributes"] = {};
-            for (var j = 0; j < xml.attributes.length; j++) {
-                var attribute = xml.attributes.item(j);
-                obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+    // 산 이미지 데이터를 가져오는 함수
+    function fetchImage(mntncd) {
+        return new Promise((resolve, reject) => {
+            const url = `${imageApiUrl}?searchWrd=${mntncd}&ServiceKey=${serviceKey}&_type=json`;
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.response.body.items && data.response.body.items.item.length > 0) {
+                        const image = data.response.body.items.item[0].image; // 첫 번째 이미지를 사용
+                        const imageUrl = `http://www.forest.go.kr/swf/foreston/mountain/${image}`;
+                        resolve(imageUrl);
+                    } else {
+                        resolve(noImageUrl);
+                    }
+                })
+                .catch(error => {
+                    resolve(noImageUrl);
+                    console.error('Error fetching image:', error);
+                });
+        });
+    }
+
+    // 페이지네이션을 설정하는 함수
+    function setupPagination(totalItems, currentPage) {
+        const pagination = document.getElementById('pagination'); // 페이지네이션을 표시할 HTML 요소
+        pagination.innerHTML = ''; // 기존 페이지네이션 초기화
+        const totalPages = Math.ceil(totalItems / itemsPerPage); // 전체 페이지 수 계산
+
+        // 각 페이지 버튼을 생성하여 추가
+        for (let i = 1; i <= totalPages; i++) {
+            const button = document.createElement('button');
+            button.className = 'pagination-button';
+            button.innerText = i; // 버튼에 페이지 번호 표시
+            if (i === currentPage) {
+                button.style.fontWeight = 'bold'; // 현재 페이지 버튼을 굵게 표시
             }
-        }
-    } else if (xml.nodeType == 3) {
-        // text
-        obj = xml.nodeValue;
-    }
-
-    // do children
-    // If all text nodes inside, get concatenated text from them.
-    var textNodes = [].slice.call(xml.childNodes).filter(function (node) {
-        return node.nodeType === 3;
-    });
-    if (xml.hasChildNodes() && xml.childNodes.length === textNodes.length) {
-        obj = [].slice.call(xml.childNodes).reduce(function (text, node) {
-            return text + node.nodeValue;
-        }, "");
-    } else if (xml.hasChildNodes()) {
-        for (var i = 0; i < xml.childNodes.length; i++) {
-            var item = xml.childNodes.item(i);
-            var nodeName = item.nodeName;
-            if (typeof obj[nodeName] == "undefined") {
-                obj[nodeName] = xmlToJson(item);
-            } else {
-                if (typeof obj[nodeName].push == "undefined") {
-                    var old = obj[nodeName];
-                    obj[nodeName] = [];
-                    obj[nodeName].push(old);
-                }
-                obj[nodeName].push(xmlToJson(item));
-            }
+            button.addEventListener('click', () => fetchMountains(i)); // 버튼 클릭 시 해당 페이지로 이동
+            pagination.appendChild(button); // 페이지 버튼을 페이지네이션에 추가
         }
     }
-    return obj;
-}
 
-window.addEventListener('load', function () {
-    var allElements = document.getElementsByTagName('*');
-    Array.prototype.forEach.call(allElements, function (el) {
-        var includePath = el.dataset.includePath;
-        if (includePath) {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    el.outerHTML = this.responseText;
-                }
-            };
-            xhttp.open('GET', includePath, true);
-            xhttp.send();
-        }
-    });
+    fetchMountains(currentPage); // 초기 페이지 데이터 가져오기
 });
-function includeHTML() {
-    const headerDiv = document.getElementById("headerDiv");
-    const footerDiv = document.getElementById("footerDiv");
-
-    if (headerDiv) {
-        fetch("layout/navbar.html")
-            .then(response => response.text())
-            .then(data => {
-                headerDiv.innerHTML = data;
-            })
-            .catch(error => {
-                console.error('Error fetching header:', error);
-            });
-    }
-
-    if (footerDiv) {
-        fetch("layout/footer.html")
-            .then(response => response.text())
-            .then(data => {
-                footerDiv.innerHTML = data;
-            })
-            .catch(error => {
-                console.error('Error fetching footer:', error);
-            });
-    }
-}
-
-document.addEventListener("DOMContentLoaded", includeHTML);
