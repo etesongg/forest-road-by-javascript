@@ -1,0 +1,195 @@
+/* 슬라이드 CSS  */
+
+.datail-slide-container {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  /* border: 2px solid yellowgreen; */
+  height: 600px;
+}
+
+.carousel {
+  width: 700px;
+  height: 500px;
+  display: flex;
+  margin-top: 50px;
+  margin-left: 50px;
+  border-radius: 10px;
+  /* border: 2px solid orange; */
+}
+
+@media screen and (max-width: 768px) {
+  .carousel {
+    width: 1000px;
+    height: 500px;
+    display: block;
+    margin-top: 50px;
+    margin-left: 60px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    /* border: 2px solid orange; */
+  }
+}
+
+.carousel-inner {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .carousel-inner {
+    display: block;
+    height: 500px;
+    width: 1000px;
+    margin-left: 80px;
+    border: 2px solid orange;
+  }
+}
+
+/* 맨위 슬라이드 옆 텍스트 박스  */
+
+.detail-textMother {
+  display: flex;
+  height: 100%;
+  /* border: 2px solid green; */
+  top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .detail-textMother {
+    display: block;
+    width: 1200px;
+    height: 100%;
+    border: 2px solid green;
+    margin-top: 80px;
+    margin-bottom: 30px;
+  }
+}
+
+.detail-title {
+  font-family: Arial, sans-serif;
+  font-size: 40px;
+  position: absolute;
+  margin-left: 800px;
+  top: 100px;
+  /* border: 2px solid blue; */
+}
+@media screen and (max-width: 768px) {
+  .detail-title {
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+    display: block;
+    margin-top: 1000px;
+    border: 2px solid blue;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .detail-title p {
+    font-family: Arial, sans-serif;
+    font-size: 50px;
+    display: block;
+    margin-left: -660px;
+    margin-top: -390px;
+    top: 100px;
+    border: 2px solid blue;
+  }
+}
+.detail-textbox {
+  width: 600px;
+  height: 300px;
+  margin-left: 800px;
+  /* border: 2px solid red; */
+  margin-top: -300px;
+}
+
+@media screen and (max-width: 768px) {
+  .detail-textbox {
+    width: 600px;
+    height: 300px;
+    margin-left: 800px;
+    display: block;
+    /* border: 2px solid red; */
+    margin-top: -300px;
+  }
+}
+
+.detail-text p {
+  font-size: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .detail-textbox p {
+    font-size: 30px;
+    width: 900px;
+    height: 400px;
+    margin-left: -670px;
+    margin-top: 550px;
+  }
+}
+
+/* .locate {
+    position: relative;
+    left: 240px;
+    top: 30px;
+  } */
+
+/* 디테일 페이지 지도 보여주기 */
+.map-container {
+  margin-top: 120px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.map-container p {
+  font-size: 29px;
+}
+
+.map-btn {
+  margin-left: 710px;
+  margin-bottom: 50px;
+}
+
+.map-imagebox {
+  margin-left: 50px;
+}
+
+.map-imagebox img {
+  width: 950px;
+  height: 600px;
+  margin-left: 240px;
+}
+
+/* 추천 등산 코스 */
+
+.course-title {
+  margin-left: 290px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  font-size: 20px;
+}
+
+.course-mother {
+  background-color: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 10px;
+  width: 950px;
+  height: 140px;
+  margin-left: 290px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.place-title {
+  margin-left: 290px;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  font-size: 20px;
+}
+
+/* 추천장소 부트스트랩 코드 */
+
+.row {
+  width: 1000px;
+  margin-left: 270px;
+  margin-bottom: 100px;
+}
