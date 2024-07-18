@@ -60,7 +60,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 .main-search-area input {
@@ -78,7 +78,7 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .city {
@@ -130,7 +130,7 @@ body {
     background-position: center;
     width: 200px;
     height: 170px;
-    margin: 10px; 
+    margin: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-repeat: no-repeat;
@@ -146,11 +146,13 @@ body {
     text-align: center;
     padding: 10px;
     border-radius: 0 0 10px 10px;
-    display: none; /* 처음에는 보이지 않도록 설정 */
+    display: none;
+    /* 처음에는 보이지 않도록 설정 */
 }
 
 .main-mountain-list-item:hover .main-mountain-list-overlay {
-    display: block; /* 호버할 때 보이도록 설정 */
+    display: block;
+    /* 호버할 때 보이도록 설정 */
 }
 
 .main-mountain-list-item .main-mountain-list-item-img {
@@ -169,19 +171,20 @@ body {
     border-radius: 0 0 10px 10px;
 }
 
-.prev, .next {
+.prev,
+.next {
     font-size: 24px;
     background: none;
     border: none;
     cursor: pointer;
-    position: absolute; 
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
     color: #333;
 }
 
 .prev {
-    left: -40px; 
+    left: -40px;
 }
 
 .next {
@@ -210,7 +213,7 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .trail-recommendation-section {
@@ -287,7 +290,7 @@ body {
 }
 
 .main-recommendation {
-    background-color: rgba(255, 255, 255, 0.8); 
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -317,7 +320,7 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -325,21 +328,26 @@ body {
     .main-recommendation {
         width: 80%;
     }
+
     .main-search-area input {
-        width: 100%; 
+        width: 100%;
     }
+
     .trail-recommendation-details {
         width: 100%;
-       
+
     }
+
     .main-course-item {
-        height: 200px; 
+        height: 200px;
         width: 400px;
     }
+
     .main-course-grid {
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: auto;
     }
+
     .main-recommendation-text h1 {
         font-size: 28px;
     }
@@ -347,47 +355,57 @@ body {
 
 @media (max-width: 480px) {
     .main-recommendation {
-        flex-direction: row; 
+        flex-direction: row;
         padding: 20px;
     }
-    
-    .main-recommendation-text, .main-recommendation-weather {
+
+    .main-recommendation-text,
+    .main-recommendation-weather {
         width: 50%;
         margin-bottom: 0;
     }
+
     .main-search-area {
         flex-direction: column;
     }
+
     .main-search-area input {
         width: 100%;
     }
+
     .trail-recommendation-container {
-        flex-direction: row; 
+        flex-direction: row;
         gap: 10px;
     }
+
     .trail-recommendation-list {
         margin-right: 0;
         margin-bottom: 20px;
         width: 100%;
 
     }
+
     .trail-recommendation-details {
         width: 100%;
     }
+
     .main-mountain-list-container {
-        flex-direction: column; 
+        flex-direction: column;
         width: 100%;
     }
+
     .main-mountain-list-item {
-        width: 300px; 
-        margin: 10px 0; 
+        width: 300px;
+        margin: 10px 0;
     }
+
     .main-course-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
     }
+
     .main-course-item {
-        width: 300px; 
-        height: 100px; 
+        width: 300px;
+        height: 100px;
     }
 }
