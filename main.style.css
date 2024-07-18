@@ -1,3 +1,4 @@
+/* 기본 스타일 */
 body {
     margin: 0;
     padding: 0;
@@ -59,7 +60,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 20px; 
 }
 
 .main-search-area input {
@@ -77,7 +78,7 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .city {
@@ -99,7 +100,7 @@ body {
 }
 
 .main-mountain-list-section {
-    padding: 50px 0;
+    padding: 20px 0;
     text-align: center;
 }
 
@@ -113,39 +114,74 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+
+}
+
+.main-mountain-list {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    scroll-behavior: smooth;
 }
 
 .main-mountain-list-item {
-    width: 290px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    width: 200px;
     height: 170px;
-    margin: 10px;
-    background-color: gainsboro;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin: 10px; 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-repeat: no-repeat;
 }
 
-.main-mountain-list-item h4 {
-    margin-bottom: 10px;
-    font-size: 18px;
+.main-mountain-list-item .main-mountain-list-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    display: none; /* 처음에는 보이지 않도록 설정 */
 }
 
-.prev,
-.next {
+.main-mountain-list-item:hover .main-mountain-list-overlay {
+    display: block; /* 호버할 때 보이도록 설정 */
+}
+
+.main-mountain-list-item .main-mountain-list-item-img {
+    width: 100%;
+    height: 170px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.main-mountain-list-item .main-mountain-list-item-title {
+    padding: 10px;
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+}
+
+.prev, .next {
     font-size: 24px;
     background: none;
     border: none;
     cursor: pointer;
-    position: absolute;
+    position: absolute; 
     top: 50%;
     transform: translateY(-50%);
+    color: #333;
 }
 
 .prev {
-    left: -40px;
+    left: -40px; 
 }
 
 .next {
@@ -174,7 +210,7 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .trail-recommendation-section {
@@ -251,7 +287,7 @@ body {
 }
 
 .main-recommendation {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8); 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -281,7 +317,7 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 
@@ -289,26 +325,21 @@ body {
     .main-recommendation {
         width: 80%;
     }
-
     .main-search-area input {
-        width: 100%;
+        width: 100%; 
     }
-
     .trail-recommendation-details {
         width: 100%;
-
+       
     }
-
     .main-course-item {
-        height: 200px;
+        height: 200px; 
         width: 400px;
     }
-
     .main-course-grid {
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: auto;
     }
-
     .main-recommendation-text h1 {
         font-size: 28px;
     }
@@ -316,132 +347,47 @@ body {
 
 @media (max-width: 480px) {
     .main-recommendation {
-        flex-direction: row;
+        flex-direction: row; 
         padding: 20px;
     }
-
-    .main-recommendation-text,
-    .main-recommendation-weather {
+    
+    .main-recommendation-text, .main-recommendation-weather {
         width: 50%;
         margin-bottom: 0;
     }
-
     .main-search-area {
         flex-direction: column;
     }
-
     .main-search-area input {
         width: 100%;
     }
-
     .trail-recommendation-container {
-        flex-direction: row;
+        flex-direction: row; 
         gap: 10px;
     }
-
     .trail-recommendation-list {
         margin-right: 0;
         margin-bottom: 20px;
         width: 100%;
 
     }
-
     .trail-recommendation-details {
         width: 100%;
     }
-
     .main-mountain-list-container {
-        flex-direction: column;
+        flex-direction: column; 
         width: 100%;
     }
-
     .main-mountain-list-item {
-        width: 300px;
-        margin: 10px 0;
+        width: 300px; 
+        margin: 10px 0; 
     }
-
     .main-course-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
     }
-
     .main-course-item {
-        width: 300px;
-        height: 100px;
+        width: 300px; 
+        height: 100px; 
     }
 }
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
-}
-
-.logo-section {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  height: 50px;
-  margin-right: 10px;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-.nav-links a:hover {
-  text-decoration: underline;
-}
-
-.footer {
-  background-color: #333;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  position: fixed;
-  overflow: hidden;
-  bottom: 0;
-  width: 100%;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.footer-right {
-  margin-right: 100px;
-  text-align: center;
-}
-
-.footer-right a {
-  color: white;
-  text-decoration: none;
-}
-
-.footer-right a:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 600px) {
-  .footer-content {
-    flex-direction: column;
-  }
-
-  .footer-right {
-    text-align: center;
-    margin-top: 10px;
-  }
-}
-
