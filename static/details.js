@@ -6,25 +6,33 @@ const TRAIL_URL = config.URL.trail_url;
 const WEATHER_URL = config.URL.weather_url;
 const WEATHER_KEY = config.KEY.weather_key;
 
+const MOUNTAINS_KEY = config.KEY.mountains_key;
+const MOUNTAINS_URL = config.URL.mountains_url;
+const TRAIL_URL = config.URL.trail_url;
+
 let url = new URL(
   `${MOUNTAINS_URL}1400000/service/cultureInfoService2/mntInfoOpenAPI2?_type=json&serviceKey=${MOUNTAINS_KEY}`
 );
 
-const mountain_keyword = "설악산";
-
 // 산 정보만 뽑을 경우
-const getMntData = async () => {
+const getData = async () => {
   url = new URL(
-    `${MOUNTAINS_URL}1400000/service/cultureInfoService2/mntInfoOpenAPI2?_type=json&serviceKey=${MOUNTAINS_KEY}&searchWrd=${mountain_keyword}`
+    `${MOUNTAINS_URL}1400000/service/cultureInfoService2/mntInfoOpenAPI2?_type=json&serviceKey=${MOUNTAINS_KEY}&searchWrd=불암산`
   );
   const response = await fetch(url);
   const data = await response.json();
-  console.log("getMntData", data);
-  const mntilistNo = data.response.body.items.item.mntilistno; // 산 코드
+  const mntilistNo = data.response.body.items.item[0].mntilistno; // 산 코드
+  console.log(data);
   await getMntImgData(mntilistNo);
-  getTrailData();
+  await getMntTrail(mntilistNo);
+  displayMntInfoArticle({
+    mntiName: data.response.body.items.item[0].mntiname,
+    mntiHigh: data.response.body.items.item[0].mntihigh,
+    mntiRegion: data.response.body.items.item[0].mntiadd,
+    mntiDetails: data.response.body.items.item[0].mntidetails,
+  });
 };
-getMntData();
+getData();
 
 const getMntImgData = async (mntilistNo) => {
   url = new URL(
@@ -58,63 +66,24 @@ const displayMntInfoFigure = (MntImgFile) => {
   ).innerHTML = `<img src="http://www.forest.go.kr/images/data/down/mountain/${MntImgFile}" alt="">`;
 };
 
-const getTrailData = async () => {
-  url = new URL(
-    `${TRAIL_URL}openapi/service/cultureInfoService/gdTrailInfoOpenAPI?_type=json&searchMtNm=${mountain_keyword}&serviceKey=${MOUNTAINS_KEY}`
-  );
-  const response = await fetch(url);
-  const data = await response.json();
-  console.log("getTrailData", data);
-  const mntncd = data.response.body.items.item.mntncd;
-  await displayMntInfoArticle(data.response.body.items.item);
-  await getMntTrail(mntncd);
-};
-// mntncd	산코드
-// mntnm 	산명
-// subnm 	산정보부제
-// areanm 	산정보소재지
-// mntheight 	산정보높이
-// aeatreason 	100대명산 선정이유
-// overview 	산정보개관
-// details 	산정보내용
-// transport 	대중교통정보설명
-// tourisminf 	주변관광정보설명
-// etccourse	산정보주변관광정보기타코스설명
 const displayMntInfoArticle = (info) => {
   const mntiDetails =
-    info.details.length >= 300
-      ? `${info.details.slice(0, 300)}...`
-      : info.details;
+    info.mntiDetails.length >= 300
+      ? `${info.mntiDetails.slice(0, 300)}...`
+      : info.mntiDetails;
   document.querySelector(".details-mnt-information article").innerHTML = `
-        <h5><b>${info.mntnm}</b></h5>
-        <p><span>고도 |</span> <span>${info.mntheight} m</span></p>
-        <p><span>지역 |</span> <span>${info.areanm}</span></p>
-        <p><span>소개 |</span> <span>${mntiDetails}</span></p>
-        
-        <b>추가로 100대명산 선정이유, 산정보개관, 대중교통정보설명, 주변관광정보설명, 산정보주변관광정보기타코스설명 보이게 할 예정</b>`;
+        <h5><b>${info.mntiName}</b></h5>
+        <p><span>고도 |</span> <span>${info.mntiHigh}m</span></p>
+        <p><span>지역 |</span> <span>${info.mntiRegion}</span></p>
+        <p><span>소개 |</span> <span>${mntiDetails}</span></p>`;
 };
 
-const getMntTrail = async (mntncd) => {
+const getMntTrail = async (mntilistNo) => {
   url = new URL(
-    `${TRAIL_URL}openapi/service/cultureInfoService/gdTrailInfoImgOpenAPI?_type=json&searchWrd=${mntncd}&serviceKey=${MOUNTAINS_KEY}`
+    `${MOUNTAINS_URL}1400000/service/cultureInfoService2/frtrlSectnOpenAPI2?_type=json&mntiListNo=${mntilistNo}&ServiceKey=${MOUNTAINS_KEY}`
   );
   const response = await fetch(url);
   const data = await response.json();
-  console.log("getMntTrail", data);
-  const trailArray = data.response.body.items.item;
-  displayMntTrailInfo(trailArray);
-};
-// titl	산행추가제목
-// content	산행추가설명
-// image	산행이미지순번
-const displayMntTrailInfo = async (trailArray) => {
-  const MntTrailInfoHTML = trailArray
-    .map((trail) => {
-      return `
-        <img src="http://www.forest.go.kr/swf/foreston/mountain/${trail.image}" alt="">
-        <p>${trail.titl}</p>
-        <p>${trail.content}</p>`;
-    })
-    .join("");
-  document.querySelector(".details-mnt-trail").innerHTML = MntTrailInfoHTML;
+
+  console.log("숲길", data);
 };
