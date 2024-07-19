@@ -6,6 +6,41 @@
   height: 600px;
 }
 
+@media screen and (max-width: 768px) {
+  .datail-slide-container {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    /* border: 2px solid yellowgreen; */
+    height: 600px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #carouselExampleIndicators {
+    display: flex;
+    width: 600px;
+    height: 370px;
+    margin-left: 25px;
+    margin-top: 30px;
+    /* border: 2px solid hotpink; */
+  }
+}
+
+/* @media screen and (max-width: 768px) {
+  #carousel-indicators {
+    margin-left: 0px;
+    margin-top: 300px;
+    border: 2px solid hotpink;
+  }
+} */
+
+@media screen and (max-width: 768px) {
+  .carousel-control-prev {
+    display: flex;
+    margin-left: 50px;
+    margin-top: 10px;
+  }
+}
+
 .carousel {
   width: 780px;
   width: 780px;
@@ -62,6 +97,14 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .carousel-item {
+    height: 50px;
+    width: 620px;
+    border: 2px solid hotpink;
+  }
+}
+
 /* 맨위 슬라이드 옆 텍스트 박스  */
 
 .detail-textMother {
@@ -77,6 +120,17 @@
     display: block;
     width: 1200px;
     height: 100%;
+    border: 2px solid green;
+    margin-left: 0px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .detail-textMother {
+    display: flex;
+    width: 300px;
+    height: 200px;
     border: 2px solid green;
     margin-left: 0px;
     margin-bottom: 30px;
@@ -112,6 +166,18 @@
     margin-top: -390px;
     top: 100px;
     border: 2px solid blue;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .detail-title p {
+    font-family: Arial, sans-serif;
+    font-size: 27px;
+    display: flex;
+    margin-left: -750px;
+    margin-top: -390px;
+    height: 40px;
+    border: 2px solid yellow;
   }
 }
 
@@ -152,6 +218,16 @@
   }
 }
 
+@media screen and (max-width: 576px) {
+  .detail-textbox p {
+    font-size: 15px;
+    width: 470px;
+    height: 130px;
+    margin-left: -785px;
+    margin-top: 360px;
+  }
+}
+
 /* .locate {
     position: relative;
     left: 240px;
@@ -184,6 +260,13 @@
   margin-bottom: 50px;
 }
 
+@media screen and (max-width: 768px) {
+  .map-btn {
+    margin-left: 300px;
+    margin-bottom: 30px;
+  }
+}
+
 .map-imagebox {
   margin-left: 20px;
 }
@@ -200,6 +283,14 @@
   margin-left: 240px;
 }
 
+@media screen and (max-width: 576px) {
+  .map-imagebox img {
+    width: 430px;
+    height: 300px;
+    margin-left: 40px;
+  }
+}
+
 /* 추천 등산 코스 */
 
 .course-title {
@@ -207,6 +298,15 @@
   margin-top: 30px;
   margin-bottom: 50px;
   font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .course-title {
+    margin-left: 90px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 20px;
+  }
 }
 
 .course-mother {
@@ -219,6 +319,21 @@
   margin-top: 20px;
   margin-bottom: 50px;
 }
+
+@media screen and (max-width: 768px) {
+  .course-mother {
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 10px;
+    width: 530px;
+    height: 140px;
+    margin-left: 90px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.course-in_box {}
 
 .place-title {
   margin-left: 180px;
@@ -247,8 +362,13 @@
 @media screen and (max-width: 768px) {
   .row {
     width: 700px;
-    margin-left: 10px;
+    margin-left: 0px;
     margin-bottom: 100px;
+    border: 2px solid yellow;
+  }
+
+  .card {
+    padding: 0 !important;
   }
 }
 
