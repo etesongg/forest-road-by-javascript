@@ -107,6 +107,7 @@
   margin-top: 50px;
 }
 
+
 @media screen and (max-width: 768px) {
   .carousel-inner {
     display: flex;
@@ -220,6 +221,7 @@
     border: 2px solid yellow;
   }
 }
+
 
 .detail-textbox {
   width: 600px;
@@ -397,6 +399,19 @@
   }
 }
 
+@media screen and (max-width: 576px) {
+  .course-mother {
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 10px;
+    width: 430px;
+    height: 140px;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
 .course-in_box {}
 
 .place-title {
@@ -426,7 +441,12 @@
 @media screen and (max-width: 768px) {
   .row {
     width: 700px;
-    margin-left: 10px;
+    margin-left: 0px;
     margin-bottom: 100px;
+    border: 2px solid yellow;
+  }
+
+  .card {
+    padding: 0 !important;
   }
 }
