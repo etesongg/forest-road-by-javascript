@@ -1,4 +1,4 @@
-import config from "../apikey.js"
+import config from "../apikey.js";
 
 const MOUNTAINS_KEY = config.KEY.mountains_key;
 const MOUNTAINS_URL = config.URL.mountains_url;
@@ -21,7 +21,23 @@ const getMntData = async() => {
 getMntData()
 
 const getMntImgData = async (mntilistNo) => {
-    url = new URL(`${MOUNTAINS_URL}1400000/service/cultureInfoService2/mntInfoImgOpenAPI2?_type=json&mntiListNo=${mntilistNo}&ServiceKey=${MOUNTAINS_KEY}`)
+  url = new URL(
+    `${MOUNTAINS_URL}1400000/service/cultureInfoService2/mntInfoImgOpenAPI2?_type=json&mntiListNo=${mntilistNo}&ServiceKey=${MOUNTAINS_KEY}`
+  );
+  const response = await fetch(url);
+  const data = await response.json();
+  const MntImgFile = data.response.body.items.item[0].imgfilename;
+  displayMntInfoFigure(MntImgFile);
+};
+
+const displayMntInfoFigure = (MntImgFile) => {
+  document.querySelector(
+    ".details-mnt-information figure"
+  ).innerHTML = `<img src="http://www.forest.go.kr/images/data/down/mountain/${MntImgFile}" alt="">`;
+};
+
+const getTrailData = async () => {
+    url = new URL(`${TRAIL_URL}openapi/service/cultureInfoService/gdTrailInfoOpenAPI?_type=json&searchMtNm=${mountain_keyword}&serviceKey=${MOUNTAINS_KEY}`)
     const response = await fetch(url);
     const data = await response.json();
     const MntImgFile = data.response.body.items.item[0].imgfilename

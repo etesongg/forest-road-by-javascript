@@ -6,8 +6,66 @@
   height: 600px;
 }
 
+@media screen and (max-width: 768px) {
+  .datail-slide-container {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    /* border: 2px solid yellowgreen; */
+    height: 600px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .datail-slide-container {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    /* border: 2px solid yellowgreen; */
+    height: 500px;
+    width: 500px;
+    margin-left: 10px;
+    margin-top: 30px;
+    border: 2px solid slateblue;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #carouselExampleIndicators {
+    display: flex;
+    width: 600px;
+    height: 370px;
+    margin-left: 25px;
+    margin-top: 30px;
+    /* border: 2px solid hotpink; */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #carouselExampleIndicators {
+    display: flex;
+    width: 500px;
+    height: 250px;
+    margin-left: -20px;
+    margin-top: -10px;
+    /* border: 2px solid hotpink; */
+  }
+}
+
+/* @media screen and (max-width: 768px) {
+  #carousel-indicators {
+    margin-left: 0px;
+    margin-top: 300px;
+    border: 2px solid hotpink;
+  }
+} */
+
+@media screen and (max-width: 768px) {
+  .carousel-control-prev {
+    display: flex;
+    margin-left: 50px;
+    margin-top: 10px;
+  }
+}
+
 .carousel {
-  width: 700px;
+  width: 780px;
   height: 500px;
   display: flex;
   margin-top: 50px;
@@ -20,7 +78,7 @@
   .carousel {
     width: 1000px;
     height: 500px;
-    display: block;
+    display: flex;
     margin-top: 50px;
     margin-left: 60px;
     margin-bottom: 30px;
@@ -29,18 +87,60 @@
   }
 }
 
+@media screen and (max-width: 576px) {
+  .carousel {
+    width: 500px;
+    height: 400px;
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    /* border: 2px solid orange; */
+  }
+}
+
 .carousel-inner {
-  display: block;
+  display: flex;
   height: 100%;
   width: 100%;
+  margin-top: 50px;
 }
 @media screen and (max-width: 768px) {
   .carousel-inner {
-    display: block;
-    height: 500px;
-    width: 1000px;
-    margin-left: 80px;
+    display: flex;
+    height: 330px;
+    width: 630px;
+    margin-left: 40px;
+    margin-top: 40px;
     border: 2px solid orange;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .carousel-inner {
+    display: flex;
+    height: 230px;
+    width: 460px;
+    margin-left: 35px;
+    margin-top: 30px;
+    border: 2px solid blue;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carousel-item {
+    height: 50px;
+    width: 620px;
+    border: 2px solid hotpink;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .carousel-item {
+    height: 150px;
+    width: 220px;
+    border: 2px solid hotpink;
   }
 }
 
@@ -51,22 +151,33 @@
   height: 100%;
   /* border: 2px solid green; */
   top: 10px;
+  margin-left: 60px;
 }
 
 @media screen and (max-width: 768px) {
   .detail-textMother {
-    display: block;
-    width: 1200px;
-    height: 100%;
+    display: flex;
+    width: 700px;
+    height: 200px;
     border: 2px solid green;
-    margin-top: 80px;
+    margin-left: 0px;
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .detail-textMother {
+    display: flex;
+    width: 300px;
+    height: 200px;
+    border: 2px solid green;
+    margin-left: 0px;
     margin-bottom: 30px;
   }
 }
 
 .detail-title {
   font-family: Arial, sans-serif;
-  font-size: 40px;
+  font-size: 50px;
   position: absolute;
   margin-left: 800px;
   top: 100px;
@@ -75,24 +186,38 @@
 @media screen and (max-width: 768px) {
   .detail-title {
     font-family: Arial, sans-serif;
-    font-size: 40px;
-    display: block;
-    margin-top: 1000px;
+    font-size: 10px;
+    display: flex;
+    margin-top: 600px;
     border: 2px solid blue;
+    height: 50px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .detail-title p {
     font-family: Arial, sans-serif;
-    font-size: 50px;
-    display: block;
-    margin-left: -660px;
-    margin-top: -390px;
-    top: 100px;
-    border: 2px solid blue;
+    font-size: 39px;
+    display: flex;
+    margin-left: -740px;
+    margin-top: -280px;
+    height: 40px;
+    border: 2px solid yellow;
   }
 }
+
+@media screen and (max-width: 576px) {
+  .detail-title p {
+    font-family: Arial, sans-serif;
+    font-size: 27px;
+    display: flex;
+    margin-left: -750px;
+    margin-top: -390px;
+    height: 40px;
+    border: 2px solid yellow;
+  }
+}
+
 .detail-textbox {
   width: 600px;
   height: 300px;
@@ -101,28 +226,42 @@
   margin-top: -300px;
 }
 
+/* 
 @media screen and (max-width: 768px) {
   .detail-textbox {
+    font-size: 10px;
     width: 600px;
     height: 300px;
     margin-left: 800px;
     display: block;
-    /* border: 2px solid red; */
+    border: 2px solid red;
     margin-top: -300px;
   }
-}
+} */
 
-.detail-text p {
-  font-size: 10px;
+.detail-textbox p {
+  font-size: 17px;
+  margin-top: 20px;
+  width: 400px;
 }
 
 @media screen and (max-width: 768px) {
   .detail-textbox p {
-    font-size: 30px;
-    width: 900px;
-    height: 400px;
-    margin-left: -670px;
-    margin-top: 550px;
+    font-size: 15px;
+    width: 550px;
+    height: 130px;
+    margin-left: -735px;
+    margin-top: 360px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .detail-textbox p {
+    font-size: 15px;
+    width: 470px;
+    height: 130px;
+    margin-left: -785px;
+    margin-top: 360px;
   }
 }
 
@@ -140,32 +279,95 @@
   font-weight: bold;
 }
 
+@media screen and (max-width: 768px) {
+  .map-container {
+    margin-top: 100px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
 .map-container p {
   font-size: 29px;
 }
 
 .map-btn {
-  margin-left: 710px;
+  margin-left: 600px;
   margin-bottom: 50px;
 }
 
+@media screen and (max-width: 768px) {
+  .map-btn {
+    margin-left: 300px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 676px) {
+  .map-btn {
+    margin-left: 200px;
+    margin-bottom: 30px;
+  }
+}
+
 .map-imagebox {
-  margin-left: 50px;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .map-imagebox {
+    margin-left: 10px;
+  }
 }
 
 .map-imagebox img {
   width: 950px;
   height: 600px;
-  margin-left: 240px;
+  margin-left: 160px;
+}
+
+@media screen and (max-width: 768px) {
+  .map-imagebox img {
+    width: 530px;
+    height: 300px;
+    margin-left: 80px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .map-imagebox img {
+    width: 430px;
+    height: 300px;
+    margin-left: 40px;
+  }
 }
 
 /* 추천 등산 코스 */
 
 .course-title {
-  margin-left: 290px;
+  margin-left: 180px;
   margin-top: 30px;
   margin-bottom: 50px;
   font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .course-title {
+    margin-left: 90px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .course-title {
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 20px;
+  }
 }
 
 .course-mother {
@@ -174,22 +376,71 @@
   border-radius: 10px;
   width: 950px;
   height: 140px;
-  margin-left: 290px;
-  margin-top: 30px;
+  margin-left: 180px;
+  margin-top: 20px;
   margin-bottom: 50px;
 }
 
+@media screen and (max-width: 768px) {
+  .course-mother {
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 10px;
+    width: 530px;
+    height: 140px;
+    margin-left: 90px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .course-mother {
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 10px;
+    width: 430px;
+    height: 140px;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+.course-in_box {
+}
+
 .place-title {
-  margin-left: 290px;
+  margin-left: 180px;
   margin-top: 150px;
   margin-bottom: 50px;
   font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .place-title {
+    margin-left: 50px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-size: 20px;
+  }
 }
 
 /* 추천장소 부트스트랩 코드 */
 
 .row {
   width: 1000px;
-  margin-left: 270px;
+  margin-left: 170px;
   margin-bottom: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    width: 700px;
+    margin-left: 0px;
+    margin-bottom: 100px;
+    border: 2px solid yellow;
+  }
+  .card {
+    padding: 0 !important;
+  }
 }
