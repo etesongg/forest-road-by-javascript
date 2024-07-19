@@ -5,36 +5,255 @@
         <div class="main-recommendation">
             <div class="main-recommendation-text">
                 <p>이번엔</p>
-                <h1>‘추천장소’</h1>
+                <h1 id="mountain-name">‘추천장소’</h1>
                 <p>어때요</p>
                 <br>
                 <button class="main-recommendation-details-button">자세히보기</button>
             </div>
             <div class="main-recommendation-weather">
-                <div class="city">서울</div>
-                <div class="temperature">30.3</div>
-                <div class="graph">그래프</div>
+                <div class="city" id="city">서울</div>
+                <div class="temperature" id="temperature">30.3</div>
+                <div class="graph" id="weather-status">흐림</div>
             </div>
         </div>
     </section>
 
     <div class="main-search-area">
         <input type="text" placeholder="어느 산을 찾으시나요?">
-        <button>검색</button>
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
 
     <section class="main-mountain-list-section">
-        <h3>Title1</h3>
-        <div class="main-mountain-list-container">
-            <button class="prev">&#10094;</button>
-            <div class="main-mountain-list-item">
-                <h4>북한산</h4>
-                <p>마우스 hover 하면<br>날씨 정보 보여주기</p>
-                <p>북한산의 정보</p>
+        <h3></h3>
+        <div class="main-mountain-list" id="main-mountain-list">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./img/mt113_1.jpg" alt="사패산">
+                        <span>사패산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt131_1.jpg" alt="수락산">
+                        <span>수락산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt108_1.jpg" alt="불암산(서울)">
+                        <span>불암산(서울)</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt186_1.jpg" alt="주왕산">
+                        <span>주왕산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt24_3.jpg" alt="관악산">
+                        <span>관악산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt48_1.jpg" alt="내장산">
+                        <span>내장산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt198.jpg" alt="청계산">
+                        <span>청계산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt171_1.jpg" alt="인왕산">
+                        <span>인왕산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt139_1.jpg" alt="아차산">
+                        <span>아차산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt153_1.jpg" alt="용마산(서울)">
+                        <span>용마산(서울)</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt140_1.jpg" alt="안산(서울)">
+                        <span>안산(서울)</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt88_1.jpg" alt="민둥산(강원)">
+                        <span>민둥산(강원)</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt6_1.jpg" alt="간월산">
+                        <span>간월산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt166_1.jpg" alt="월출산">
+                        <span>월출산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt77_1.jpg" alt="명성산">
+                        <span>명성산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt226_1.jpg" alt="화왕산">
+                        <span>화왕산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt194_1.jpg" alt="천마산(경기)">
+                        <span>천마산(경기)</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt126_1.jpg" alt="소백산">
+                        <span>소백산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt227_1.jpg" alt="황매산">
+                        <span>황매산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt150_1.jpg" alt="오서산">
+                        <span>오서산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt82_1.jpg" alt="무등산">
+                        <span>무등산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt22_1.jpg" alt="고헌산">
+                        <span>고헌산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt47_1.jpg" alt="내연산">
+                        <span>내연산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt57_1.jpg" alt="대야산">
+                        <span>대야산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt143_1.jpg" alt="영축산">
+                        <span>영축산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt160_1.jpg" alt="운문산">
+                        <span>운문산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt177_1.jpg" alt="재약산">
+                        <span>재약산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt197_1.jpg" alt="천황산">
+                        <span>천황산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt5_1.jpg" alt="가지산">
+                        <span>가지산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt43_1.jpg" alt="남산(경주)">
+                        <span>남산(경주)</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt216_1.jpg" alt="팔봉산">
+                        <span>팔봉산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt3_1.jpg" alt="가야산">
+                        <span>가야산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt15_1.jpg" alt="계룡산">
+                        <span>계룡산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt46_1.jpg" alt="내변산">
+                        <span>내변산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt214_1.jpg" alt="팔공산">
+                        <span>팔공산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt92_1.jpg" alt="방태산">
+                        <span>방태산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt2_1.jpg" alt="가리왕산">
+                        <span>가리왕산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt89_1.jpg" alt="민주지산">
+                        <span>민주지산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt170_1.jpg" alt="응봉산">
+                        <span>응봉산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt246_1.jpg" alt="계양산">
+                        <span>계양산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt74_1.jpg" alt="마이산">
+                        <span>마이산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt195_1.jpg" alt="천성산">
+                        <span>천성산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt146_1.jpg" alt="오대산">
+                        <span>오대산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt219_1.jpg" alt="한라산">
+                        <span>한라산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt105_1.jpg" alt="북한산">
+                        <span>북한산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt60_1.jpg" alt="덕유산">
+                        <span>덕유산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt210_1.jpg" alt="태백산">
+                        <span>태백산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt16_1.jpg" alt="계방산">
+                        <span>계방산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt53_1.jpg" alt="대둔산">
+                        <span>대둔산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt189_1.jpg" alt="지리산">
+                        <span>지리산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt165_1.jpg" alt="월악산">
+                        <span>월악산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt121_1.jpg" alt="설악산">
+                        <span>설악산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt63.jpg" alt="도봉산">
+                        <span>도봉산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt207_1.jpg" alt="치악산">
+                        <span>치악산</span>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/mt128_1.jpg" alt="속리산">
+                        <span>속리산</span>
+                    </div>
+                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
-            <div class="main-mountain-list-item"></div>
-            <div class="main-mountain-list-item"></div>
-            <button class="next">&#10095;</button>
         </div>
     </section>
 
@@ -45,18 +264,19 @@
     </section>
 
     <section class="trail-recommendation-section">
-        <h3>Title2</h3>
+        <h3>지금 인기있는 산</h3>
+        <p>가장 검색을 많이 한 산을 알려드릴께요!</p>
         <div class="trail-recommendation-container">
             <div class="trail-recommendation-list">
-                <button>장소1</button>
-                <button>장소2</button>
-                <button>장소3</button>
-                <button>장소4</button>
-                <button>장소5</button>
-                <button>장소6</button>
+                <button onclick="showInfo('북한산')">북한산</button>
+                <button onclick="showInfo('설악산')">설악산</button>
+                <button onclick="showInfo('도봉산')">도봉산</button>
+                <button onclick="showInfo('소백산')">소백산</button>
+                <button onclick="showInfo('한라산')">한라산</button>
+                <button onclick="showInfo('관악산')">관악산</button>
             </div>
-            <div class="trail-recommendation-details">
-                추천코스 or 정보
+            <div class="trail-recommendation-details" id="recommendation-details">
+                <!-- 코스 정보가 여기에 표시됩니다. -->
             </div>
         </div>
     </section>
