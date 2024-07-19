@@ -34,6 +34,7 @@
   height: 100%;
   width: 100%;
 }
+
 @media screen and (max-width: 768px) {
   .carousel-inner {
     display: block;
@@ -72,6 +73,7 @@
   top: 100px;
   /* border: 2px solid blue; */
 }
+
 @media screen and (max-width: 768px) {
   .detail-title {
     font-family: Arial, sans-serif;
@@ -93,6 +95,7 @@
     border: 2px solid blue;
   }
 }
+
 .detail-textbox {
   width: 600px;
   height: 300px;
