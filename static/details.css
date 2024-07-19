@@ -10,18 +10,19 @@
   .datail-slide-container {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     /* border: 2px solid yellowgreen; */
-    height: 600px;
+    height: 500px;
+    width: 590px;
   }
 }
 
 @media screen and (max-width: 768px) {
   #carouselExampleIndicators {
     display: flex;
-    width: 600px;
+    width: 590px;
     height: 370px;
-    margin-left: 25px;
+    margin-left: 0px;
     margin-top: 30px;
-    /* border: 2px solid hotpink; */
+    border: 2px solid hotpink;
   }
 }
 
@@ -54,11 +55,11 @@
 
 @media screen and (max-width: 768px) {
   .carousel {
-    width: 1000px;
+    width: 600px;
     height: 500px;
     display: flex;
     margin-top: 50px;
-    margin-left: 60px;
+    margin-left: 10px;
     margin-bottom: 30px;
     border-radius: 10px;
     /* border: 2px solid orange; */
@@ -90,9 +91,9 @@
   .carousel-inner {
     display: flex;
     height: 330px;
-    width: 630px;
-    margin-left: 40px;
-    margin-top: 40px;
+    width: 530px;
+    margin-left: 20px;
+    margin-top: 30px;
     border: 2px solid orange;
   }
 }
