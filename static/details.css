@@ -36,6 +36,7 @@
   margin-top: 50px;
 }
 
+
 @media screen and (max-width: 768px) {
   .carousel-inner {
     display: block;
@@ -117,7 +118,6 @@
     border: 2px solid blue;
   }
 }
-
 
 .detail-textbox {
   width: 600px;
@@ -290,27 +290,4 @@
   width: 1000px;
   margin-left: 170px;
   margin-bottom: 100px;
-}
-
-@media screen and (max-width: 768px) {
-  .row {
-    width: 700px;
-    margin-left: 0px;
-    margin-bottom: 100px;
-    border: 2px solid yellow;
-  }
-
-  .card {
-    padding: 0 !important;
-  }
-}
-
-/* 송희 추가 */
-.tag-h6 {
-  display: inline;
-}
-
-#map {
-  width: 100%;
-  height: 400px;
 }
