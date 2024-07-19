@@ -92,13 +92,6 @@ section.ShowMountain {
   text-align: center;
 }
 
-/* paigination */
-.pagination {
-  text-align: center;
-  border: 1px solid #000;
-  display: flex;
-  justify-content: center;
-}
 footer {
   margin-top: 80px;
 }
