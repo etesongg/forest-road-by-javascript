@@ -1,12 +1,6 @@
 <link rel="stylesheet" href="/static/main.css" />
 
 <main>
-
-    <section class="main-recommendation-section section1">
-        <div class="main-recommendation">
-        </div>
-    </section>
-
     <section class="main-mountain-list-section section2">
         <h3>이번주는 어느 산으로 갈까요?</h3>
         <div class="main-search-area">
@@ -245,7 +239,7 @@
         </div>
 
         <div class="main-banner-area">
-            <a href="#">
+            <a href="https://discord.com/">
                 <div class="main-banner-text">
                     <h5><i class="jsx-d0ef22ce87c05612">🙋🏻‍♂️</i> 오늘 등산이 처음이신가요?</h5>
                     <p>사람들의 후기를 들을 수 있는 모임이 있어요!</p>
@@ -274,43 +268,59 @@
 
 
 
-    <!-- 이미지 위로 소제목 올리는 작업 중 20240720 민영 -->
     <section class="main-theme-courses section4">
         <h3>테마별 코스 큐레이션</h3>
+        <p>가장 인기있는 추천 코스를 확인하세요!!</p>
         <div class="main-theme-course-grid">
-            <div class="main-theme-course-item" data-title="계곡을 품은 등산 코스 BEST 9" data-description="여름에 딱 가기 좋은"
-                data-additional-info="1. 가리왕산-장구목이 코스<br/><br/>이끼계곡으로 유명한 코스
-                여름 피서 산으로 유명한 가리왕산의 대표 계곡 코스
-                오르막과 너덜길이 많아서 쉽진 않지만 시원한 폭포소리를 들으면 어느샌가 정상에 도착해 있을 거예요."
-                data-additional-image="./img/themecourse1-1.png">
-                <img src="./img/course01.png" alt="코스 이미지1" data-info="계곡을 품은 등산 코스 BEST 9">
+            <div class="main-theme-course-item" data-title="계곡을 품은 등산 코스 BEST 3" data-description="여름에 딱 가기 좋은"
+                data-additional-info='[
+                {"title": "1. 가리왕산-장구목이 코스", "image": "./img/themecourse1-1.png", "description": "이끼계곡으로 유명한 코스. 여름 피서 산으로 유명한 가리왕산의 대표 계곡 코스. 오르막과 너덜길이 많아서 쉽진 않지만 시원한 폭포소리를 들으면 어느샌가 정상에 도착해 있을 거예요.", "transport": {"public": "진부역/진부 버스터미널에서 21번(정선 행) 버스 탑승 후 장구목이 하차 (약 30분)", "car": "장구목이 들머리 입구 별도의 주차장이 없음", "guide": "좋은사람들"}},
+                {"title": "2. 민주지산-물한계곡 코스", "image": "./img/themecourse1-2.png", "description": "원시림 계곡을 따라 정상으로 가요. 울창한 숲과 계곡길로 여름에 시원하게 오르기 좋아요. 다른 코스에 비해 완만해 초보 산행에 추천!", "transport": {"public": "영동역에서 12번(심천행) 버스 탑승 후 물한계곡 하차 (약 45분)", "car": "물한계곡 입구 무료 주차장 이용 가능", "guide": "여행친구"}},
+                {"title": "3. 지리산-뱀사골계곡 코스", "image": "./img/themecourse1-3.png", "description": "시원한 계곡을 따라 트레킹해요! 다양한 전설을 가진 연못들을 지나는 재미가 있어요. 가을철 단풍구경으로도 멋진 코스에요.", "transport": {"public": "남원역에서 10번(산내면행) 버스 탑승 후 뱀사골계곡 하차 (약 1시간)", "car": "뱀사골계곡 입구 유료 주차장 이용 가능", "guide": "산사랑"}}
+            ]'>
+                <img src="./img/course01.png" alt="코스 이미지1" data-info="계곡을 품은 등산 코스 BEST 3">
                 <div class="theme-course-overlay">
                     <div class="theme-course-subtitle">여름에 가기 딱 좋은</div>
-                    <div class="theme-course-title">계곡을 품은 등산 코스<br>BEST 9</div>
+                    <div class="theme-course-title">계곡을 품은 등산 코스<br>BEST 3</div>
                 </div>
             </div>
 
-            <div class="main-theme-course-item" data-title="일몰&야경 추천 코스 BEST 8" data-description="태양을 피하고 싶어서">
-                <img src="./img/course2.png" alt="코스 이미지2" data-info="일몰&야경 추천 코스 BEST 8 ">
+            <div class="main-theme-course-item" data-title="일몰&야경 추천 코스 BEST 8" data-description="태양을 피하고 싶어서"
+                data-additional-info='[
+                {"title": "1. 인왕산-사직 코스", "image": "./img/themecourse2-1.png", "description": "서울 전망을 즐길 수 있는 대표 코스. 잘 정리된 산길을 따라 오르다보면 어느새 정상 도착! 오르는 내내 서울의 멋진 풍경을 눈에 담을 수 있어요.", "transport": {"public": "경복궁역 3번 출구에서 7212번 버스 탑승 후 인왕산 하차 (약 20분)", "car": "인왕산 주차장 이용 가능", "guide": "서울산악회"}},
+                {"title": "2. 아차산-고구려정 코스", "image": "./img/themecourse2-2.png", "description": "정상으로 가는 대표 코스. 조금만 올라가도 넓게 펼쳐진 고구려정 마당바위와 한강뷰가 멋진 코스에요!", "transport": {"public": "광나루역 1번 출구에서 5분 도보", "car": "광나루역 공영주차장 이용 가능", "guide": "광나루산악회"}},
+                {"title": "3. 천마산(경기)-호평동 1코스", "image": "./img/themecourse2-3.png", "description": "계단주와 최단 코스. 일출/운해를 보러가는 산쟁이들의 인기코스. 온갖 계단을 타는 코스에요! 가파르게 올라가요.", "transport": {"public": "호평역 2번 출구에서 30분 도보", "car": "호평역 공영주차장 이용 가능", "guide": "호평산악회"}}
+            ]'>
+                <img src="./img/course2.png" alt="코스 이미지2" data-info="일몰&야경 추천 코스 BEST 8">
                 <div class="theme-course-overlay">
                     <div class="theme-course-subtitle">태양을 피하고 싶어서</div>
-                    <div class="theme-course-title">일몰&야경 추천 코스<br>BEST 8</div>
+                    <div class="theme-course-title">일몰&야경 추천 코스<br>BEST 3</div>
                 </div>
             </div>
 
-            <div class="main-theme-course-item" data-title="초보 산쟁이 추천 코스 BEST 9" data-description="심박수 140BPM 이하">
+            <div class="main-theme-course-item" data-title="초보 산쟁이 추천 코스 BEST 9" data-description="심박수 140BPM 이하"
+                data-additional-info='[
+                {"title": "1. 민둥산(강원)-증산초 코스", "image": "./img/themecourse3-1.png", "description": "민둥산 대표 코스. 1시간 반 만에 만나는 새로운 세계! 여름과 가을의 매력이 뚜렷하게 달라요! 여름/가을 모두 다녀오기를 추천해요! 소문보다 힘듦 주의!!!", "transport": {"public": "민둥산역에서 10분 도보", "car": "민둥산역 주차장 이용 가능", "guide": "민둥산악회"}},
+                {"title": "2. 한라산-어승생악 코스", "image": "./img/themecourse3-2.png", "description": "시간은 없지만 멋진 풍경을 보고싶을 때. 한라산에 가장 가까운 오름으로 조금만 올라가도 제주의 멋진 풍경을 볼 수 있어요. 자연 생태가 잘 보존되어 있어 자연학습 탐방로로 활용되고 있습니다.", "transport": {"public": "제주공항에서 240번 버스 탑승 후 한라산입구 하차 (약 1시간)", "car": "한라산 입구 주차장 이용 가능", "guide": "한라산악회"}},
+                {"title": "3. 속리산-세조길 코스", "image": "./img/themecourse3-3.png", "description": "세조가 걸린 길 따라 산림욕해요. 계곡 쪽 잔도에서 나무 그늘을 따라 쉬엄쉬엄 올라갈 수 있어요.", "transport": {"public": "속리산역에서 10분 도보", "car": "속리산 주차장 이용 가능", "guide": "속리산악회"}}
+            ]'>
                 <img src="./img/course3.png" alt="코스 이미지3" data-info="초보 산쟁이 추천 코스 BEST 9">
                 <div class="theme-course-overlay">
                     <div class="theme-course-subtitle">심박수 140BPM 이하</div>
-                    <div class="theme-course-title">초보 산쟁이 추천 코스<br>BEST 9</div>
+                    <div class="theme-course-title">초보 산쟁이 추천 코스<br>BEST 3</div>
                 </div>
             </div>
 
-            <div class="main-theme-course-item" data-title="암릉러버 추천 코스 BEST 8" data-description="늘 짜릿해! 새로워!">
+            <div class="main-theme-course-item" data-title="암릉러버 추천 코스 BEST 8" data-description="늘 짜릿해! 새로워!"
+                data-additional-info='[
+                {"title": "1. 북한산-숨은벽 코스", "image": "./img/themecourse4-1.png", "description": "암릉능선 타고 싶은 산쟁이 추천. 산쟁이라면 꼭 오르고 싶다는 숨은벽-백운대 코스에요! 북한산 코스 중에서 가장 힘든 코스 중 하나로 위험한 구간이 많으니 꼭 숙련된 산쟁이만 도전 * 인수봉과 백운대 사이에 숨어있어서 숨은벽이라고 해요", "transport": {"public": "북한산성입구역에서 704번 버스 탑승 후 북한산성입구 하차 (약 20분)", "car": "북한산성입구 주차장 이용 가능", "guide": "북한산악회"}},
+                {"title": "2. 도봉산-망월사 코스", "image": "./img/themecourse4-2.png", "description": "포대능선과 Y계곡을 타는 코스. 포대능선을 타고 신선대로 가기 위해 Y계곡을 타는 코스에요. 중급 이상 산쟁이들에게 추천해요. 포대능선은 도봉산에서 가장 멋있는 능선으로도 유명해요! 초보 산쟁이도 도전 가능!", "transport": {"public": "도봉산역에서 30분 도보", "car": "도봉산역 주차장 이용 가능", "guide": "도봉산악회"}},
+                {"title": "3. 수락산-수락골 코스", "image": "./img/themecourse4-3.png", "description": "포대능선과 Y계곡을 타는 코스. 포대능선을 타고 신선대로 가기 위해 Y계곡을 타는 코스에요. 중급 이상 산쟁이들에게 추천해요. 포대능선은 도봉산에서 가장 멋있는 능선으로도 유명해요! 초보 산쟁이도 도전 가능!", "transport": {"public": "수락산역에서 20분 도보", "car": "수락산역 주차장 이용 가능", "guide": "수락산악회"}}
+            ]'>
                 <img src="./img/course4.png" alt="코스 이미지4" data-info="암릉러버 추천 코스 BEST 8">
                 <div class="theme-course-overlay">
                     <div class="theme-course-subtitle">늘 짜릿해! 새로워!</div>
-                    <div class="theme-course-title">암릉러버 추천 코스<br>BEST 8</div>
+                    <div class="theme-course-title">암릉러버 추천 코스<br>BEST 3</div>
                 </div>
             </div>
         </div>
@@ -321,16 +331,12 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="modal-body">
-                <div class="modal-image-container">
-                    <img id="modal-image" src="" alt="Modal Image">
-                    <div id="modal-image-title" class="modal-image-title"></div>
-                </div>
-                <p id="modal-description"></p>
-                <div class="additional-info" id="additional-info"></div>
+                <div class="modal-title" id="modal-title"></div>
+                <div class="modal-description" id="modal-description"></div>
+                <div class="modal-courses" id="modal-courses"></div>
             </div>
         </div>
     </div>
     <!-- 테마별 코스 큐레이션 모달창 - 끝 -->
-
 
 </main>

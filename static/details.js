@@ -131,7 +131,7 @@ const translateToAddress = async (mntAdress) => {
         // 성공 시의 response 처리
         const {x, y} = response.v2.addresses[0]
         console.log(`y : ${x} x : ${y}`);
-        return initMap(y, x), callWeather(y, x)
+        return initMap(y, x)
     });
 }
 
