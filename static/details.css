@@ -115,6 +115,8 @@ body {
   width: 800px;
   margin-left: 220px;
   margin-top: 4%;
+  border: 2px solid rgb(2, 2, 2);
+  height: 420px;
 }
 
 .details-Line2 {
@@ -363,6 +365,7 @@ h1.sixth:hover:after {
     margin: 0;
     margin-top: 40px;
     width: 80%;
+    border: 2px solid rgb(2, 2, 2);
   }
 }
 @media (max-width: 768px) {
