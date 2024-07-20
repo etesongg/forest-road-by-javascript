@@ -12,7 +12,10 @@
 
 body {
   background-color: white;
+  margin: 0;
+  padding: 0;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -48,6 +51,11 @@ body {
 .mntCol {
   width: 600px;
 }
+
+.mntCol img {
+  width: 100%;
+}
+
 .mntCol-lg-6 {
   /* border: 2px solid rgb(43, 241, 47); */
   width: 600px;
@@ -74,23 +82,42 @@ body {
   margin-top: 100px;
   font-weight: 500;
   font-size: 24px;
-  margin-top: 70px;
+  margin-top: 40px;
   margin-bottom: 30px;
   /* border: 2px solid hotpink; */
-  margin-left: 150px;
+  margin-left: 240px;
   width: 400px;
+}
+
+.map-btn {
+  margin-left: 560px;
+  margin-top: -120px;
+}
+
+.details-Line {
+  border: 1px solid gray;
 }
 
 .tag-h6 {
   font-size: 25px;
-  border: 2px solid rgb(220, 18, 18);
+  border: 2px solid rgb(68, 122, 231);
   margin-top: 0px;
+  margin-bottom: 80px;
+  width: 200px;
+  height: 100px;
 }
 
 .map-imagebox {
-  width: 900px;
+  width: 800px;
   margin-left: 220px;
-  margin-top: 0px;
+  margin-top: 80px;
+  height: 350px;
+  border: 2px solid rgb(220, 18, 18);
+}
+
+.details-Line2 {
+  border: 1px solid gray;
+  margin-top: 90px;
 }
 
 .detailsPlace-title {
@@ -102,8 +129,9 @@ body {
   margin-top: 150px;
 }
 
+/* 맨마지막 관련추천장소 박스 */
 .detailsPlace-mother {
-  background-color: rgb(236, 236, 235);
+  background-color: white;
   margin-top: 50px;
   width: 100%;
   height: 420px;
@@ -140,6 +168,94 @@ body {
   background-color: #07742f;
   height: 200px;
   margin-bottom: 100px;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+.full-color {
+  margin: 0;
+}
+
+/* .full-color {
+  width: 100% !important;
+  height: 200px !important;
+  margin-bottom: 100px;
+  background-color: aqua !important;
+} */
+
+.check-map h1 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.5em;
+  padding-bottom: 15px;
+  position: relative;
+  margin-top: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.check-map h1:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  width: 55px;
+  background-color: #111;
+}
+.check-map h1:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  height: 1px;
+  width: 95%;
+  max-width: 255px;
+  background-color: #333;
+}
+
+.check-map p {
+  color: #8f8f8f;
+  margin-top: 20px;
+}
+
+.detail_info h1 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.5em;
+  padding-bottom: 15px;
+  position: relative;
+  margin-top: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.detail_info h1:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  width: 55px;
+  background-color: #111;
+}
+.detail_info h1:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  height: 1px;
+  width: 95%;
+  max-width: 255px;
+  background-color: #333;
+}
+
+.detail_info p {
+  color: #8f8f8f;
+  margin-top: 20px;
 }
 
 /*  태블릿 반응형*/
@@ -181,18 +297,25 @@ body {
     width: 480px;
     height: 100px;
     margin-top: 0px;
-    width: 200px;
-    margin-left: 150px;
+    margin-left: 200px;
     /* border: 2px solid rgb(43, 241, 47); */
   }
 
+  .map-btn {
+    margin-left: 260px;
+    margin-top: -40px;
+    width: 200px;
+    height: 40px;
+    /* border: 2px solid rgb(43, 241, 47); */
+  }
   .map-container p {
-    margin-top: 100px;
-    font-weight: 500;
-    font-size: 15px;
-    margin-top: 0px;
+    margin-top: 50px;
+    font-weight: 400;
+    font-size: 30px;
+
     margin-left: 30px;
     width: 300px;
+    border: 2px solid rgb(43, 43, 241);
   }
 
   .details-mnt-map {
@@ -201,27 +324,24 @@ body {
     margin-left: -70px;
   }
 
-  .tag-h6 {
-    font-size: 20px;
-  }
-
   #map {
     width: 300px;
     height: 300px;
-    margin-left: 0px;
+    margin-left: 60px;
     margin-top: 20px;
   }
 
   .tag-h6 {
     font-size: 25px;
-    /* border: 2px solid rgb(220, 18, 18); */
-    margin-top: 40px;
+    border: 2px solid rgb(28, 27, 28);
+    margin-top: 90px;
   }
 
   .map-imagebox {
     width: 290px;
-    margin-left: 100px;
-    margin-top: 0px;
+    margin-left: 170px;
+    margin-top: 30px;
+    border: 2px solid rgb(32, 235, 107);
   }
 
   .detailsPlace-title {
@@ -251,6 +371,25 @@ body {
     margin-left: 80px;
     margin-bottom: 30px;
   }
+  .View_info_box_course_right__Eqk9V {
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+    margin-top: -70px;
+    margin-left: 20px;
+    width: 300px;
+  }
+
+  .View_info_box_course_right__Eqk9V p {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    position: relative;
+    background-size: cover;
+    background-position: 0;
+    background-repeat: no-repeat;
+    color: grey;
+  }
 }
 
 /* 디테일 페이지 중간 슬로건 효과 */
@@ -274,7 +413,7 @@ h1.sixth:after {
   top: 1px;
   height: 100%;
   font-size: 1.25em;
-  color: tomato;
+  color: rgb(96, 95, 95);
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 
   transition: all 0.5s ease;
@@ -301,8 +440,8 @@ h1.sixth:hover:after {
     padding: 30px;
     color: #07742f;
     font-size: 25px;
-    margin-top: 160px;
-    margin-left: 140px;
+    margin-top: 210px;
+    margin-left: 170px;
   }
 
   h1.sixth:before,
@@ -331,5 +470,18 @@ h1.sixth:hover:after {
 
   h1.sixth:hover:after {
     transform: translateX(5px);
+  }
+
+  .card {
+    width: 300px;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    width: 100vw;
+    height: 100vh;
   }
 }
