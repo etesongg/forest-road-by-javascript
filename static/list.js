@@ -26,11 +26,10 @@ const numOfRows = 12;
 const mountain_keyword = ``;
 
 
-
+let keyword = "";
 
 // 산 리스트를 가져오는 함수
 const getMntiList = async () => {
-  const keyword = document.getElementById("SearchName").value;
   url = new URL(
     `${TRAIL_URL}openapi/service/cultureInfoService/gdTrailInfoOpenAPI?ServiceKey=${MOUNTAINS_KEY}&numOfRows=${numOfRows}&searchMtNm=${keyword}&_type=json`
   );
@@ -45,7 +44,9 @@ const getMntiList = async () => {
     await getMntiImg(codeList[i], i);
   }
   await render();
+  await paginationRender();
 };
+getMntiList()
 
 const getMntiImg = async (mntncd, index) => {
   url = new URL(
@@ -55,15 +56,9 @@ const getMntiImg = async (mntncd, index) => {
   const response = await fetch(url);
   const data = await response.json();
   let imgFileInfo = data.response.body.items.item;
-  if (imgFileInfo !== undefined) {
-    if (imgFileInfo[0] === undefined) {
-      imgList[index] = `https://static.vecteezy.com/system/resources/thumbnails/005/337/799/small/icon-image-not-found-free-vector.jpg`; // 이미지가 없는 경우 noimage사진출력
-    } else {
-      imgList[index] = `http://www.forest.go.kr/images/data/down/mountain/${imgFileInfo[0].imgfilename}`;
-    }
-  } else if (imgFileInfo === undefined) {
-    imgList[index] = `https://static.vecteezy.com/system/resources/thumbnails/005/337/799/small/icon-image-not-found-free-vector.jpg`;
-  }
+  imgList[index] = (Array.isArray(imgFileInfo) && imgFileInfo.length > 0)
+    ? `http://www.forest.go.kr/images/data/down/mountain/${imgFileInfo[0].imgfilename}`
+    : `https://static.vecteezy.com/system/resources/thumbnails/005/337/799/small/icon-image-not-found-free-vector.jpg`;
 };
 
 
@@ -87,25 +82,32 @@ const getMntiListByKeyword = async () => {
     return;
   }
   mntiList = data.response.body.items.item;
+  console.log('getMntiListByKeyword',mntiList)
+  searchButton.addEventListener("click", getMntiListByKeyword)
   render()
   document.getElementById("SearchName").value = ``;
-  searchButton.addEventListener("click", getMntiListByKeyword)
 };
 
 
 
 //검색 창 엔터키로 입력 기능
-document.getElementById("SearchName").addEventListener("keyup", (enterKeyCode) => {
-  let enterKey = enterKeyCode.code;
-  if (enterKey == "Enter" || enterKey == "NumpadEnter") {
-    if(document.getElementById("SearchName").value == "") {
-      return;
-    } else if(document.getElementById("SearchName").value) {
-      getMntiListByKeyword()
-      document.getElementById("SearchName").value = ``;
-    }
+document.addEventListener("DOMContentLoaded", function () {
+  const searchNameInput = document.getElementById("SearchName");
+
+  if (searchNameInput) {
+    searchNameInput.addEventListener("keyup", (enterKeyCode) => {
+      let enterKey = enterKeyCode.code;
+      if (enterKey === "Enter" || enterKey === "NumpadEnter") {
+        if (searchNameInput.value === "") {
+          return;
+        } else if (searchNameInput.value) {
+          getMntiListByKeyword();
+          searchNameInput.value = ``;
+        }
+      }
+    });
   }
-})
+});
 
 
 
@@ -126,7 +128,7 @@ const render = () => {
     })
     .join("");
   document.querySelector(".MountainGroup").innerHTML = mntiHTML;
-  paginationRender();
+
 };
 
 
@@ -178,8 +180,8 @@ const paginationRender = async() => {
   document.querySelector(".pagination").innerHTML = pagiNationHTML;
   document.querySelectorAll(".page-item").forEach((item) => {
     item.addEventListener("click", (event) => {
-      const pageNum = parseInt(event.target.getAttribute("pageNum"));
-      moveToPage(pageNum)
+      const pageNum = parseInt(event.currentTarget.querySelector("a").getAttribute("pageNum"));
+      moveToPage(pageNum);
     });
   });
 }
@@ -196,8 +198,5 @@ const errorRender = (text) => {
         <p><b>"${text}"</b>은(는) 정보가 없습니다.</p>
       </div>`;
 }
-
-
-getMntiList();
 
 document.querySelector(".ShowMountain .heading").addEventListener("click", getMntiList)
