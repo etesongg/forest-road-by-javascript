@@ -3,188 +3,41 @@
 <main>
   <!-- 부트스트랩 슬라이드 -->
   <div class="datail-slide-container">
-    <div id="carouselExampleIndicators" class="carousel slide">
-      <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
+    <section class="details-mnt-information">
+      <div class="inner row">
+        <figure class="col-lg-6">
+            <!-- 산 이미지 -->
+        </figure>
+        <article class="col-lg-6">
+            <!-- 산 정보 -->
+        </article>
       </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI7rAozOpoLr0rH7wiLQsWv8vj_HKMVFrpjw&s"
-            class="d-block w-100"
-            alt="..."
-          />
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI7rAozOpoLr0rH7wiLQsWv8vj_HKMVFrpjw&s"
-            class="d-block w-100"
-            alt="..."
-          />
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI7rAozOpoLr0rH7wiLQsWv8vj_HKMVFrpjw&s"
-            class="d-block w-100"
-            alt="..."
-          />
-        </div>
-      </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <!-- 슬라이더 박스 옆 글자박스 -->
-    <div class="detail-textMother">
-      <div class="detail-title">
-        <p>Life with beautiful mountains</p>
-      </div>
-      <div class="detail-textbox locate">
-        <p>
-          What Venis fears most about mail theft is having her identity stolen
-          and her personal account information used by criminals. Those fears
-          aren’t unfounded. The Financial Crimes Enforcement Network (FinCEN)
-          issued an alert to financial institutions in Feb. 2023 asking banks to
-          be vigilant about check-fraud schemes targeting the U.S. mail. In many
-          cases, scammers take checks, use chemicals to wipe the writing off of
-          them, and then rewrite them for tens of thousands of dollars. If
-          consumers don’t let their banks know of the fraud in time, they can’t
-          recoup their money. There were nearly 250,000 reports of suspicious
-          activity around checks in 2021, the most recent year for which there
-          was data available, a 158% from 2014, according to the Department of
-          Treasury.
-        </p>
-      </div>
-    </div>
+  </section>
+  
+    
   </div>
 
   <!--  지도 박스 나오는 곳-->
   <div class="map-container">
-    <p>지리산 지도</p>
-  </div>
-  <div class="map-btn">
-    <button type="button" class="btn btn-secondary">등산 코스</button>
+    <p>지도</p>
   </div>
   <div class="map-imagebox">
-    <img
-      class="map-img"
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI7rAozOpoLr0rH7wiLQsWv8vj_HKMVFrpjw&s"
-    />
-  </div>
-  <!-- 등산 코스 보여주는 공간 -->
-  <div class="course-title">
-    <p>추천 등산 코스</p>
-  </div>
-  <div class="course-mother">
-    <div></div>
-    <div class="course-text">
-      <p>구름다리 코스</p>
-    </div>
+    <section class="details-mnt-map">
+      <h6 class="tag-h6">지도</h6> <i class="fa-solid fa-location-arrow" data-bs-toggle="popover" data-bs-placement="right"></i>
+          <div id="map"></div>
+    </section>
   </div>
 
   <!-- 그외의 추천 장소 -->
   <div class="place-title">
-    <p>그 외의 추천 장소</p>
+    <p>관련 추천 장소</p>
   </div>
-  <!-- 부트스트랩 코드 -->
-  <div class="row row-cols-1 row-cols-md-2 g-4">
-    <div class="col">
-      <div class="card">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI7rAozOpoLr0rH7wiLQsWv8vj_HKMVFrpjw&s"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
-          </p>
-        </div>
-      </div>
+  <section class="details-mnt-related-images">
+    <div class="row">
+        <!-- 관련 이미지 -->
     </div>
-    <div class="col">
-      <div class="card">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI7rAozOpoLr0rH7wiLQsWv8vj_HKMVFrpjw&s"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI7rAozOpoLr0rH7wiLQsWv8vj_HKMVFrpjw&s"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI7rAozOpoLr0rH7wiLQsWv8vj_HKMVFrpjw&s"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit.
-          </p>
-        </div>
-      </div>
-    </div>
+  </section>
   </div>
 </main>
+
+

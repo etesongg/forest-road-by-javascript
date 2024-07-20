@@ -22,12 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // page 값에 따라 다른 HTML 파일을 불러옴
     let contentToLoad = "main.html"; // 기본값 설정
+    let scriptToLoad = "static/main.js"
     if (page === "details") {
       contentToLoad = "details.html";
-      loadScript("static/details.js");
+      scriptToLoad = "static/details.js";
     } else if (page === "list") {
         contentToLoad = "list.html";
-        loadScript("static/details.js");
+        scriptToLoad = "static/details.js";
     }else if (!page) {
       // 쿼리 파라미터가 없는 경우, 기본값(메인)으로 리다이렉트
       window.location.search = "?page=main";
