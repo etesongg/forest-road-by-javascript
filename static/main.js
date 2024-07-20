@@ -1,6 +1,14 @@
-/* 섹션2) 산 목록 슬라이드로 보여주기 - 시작 */
 document.addEventListener("DOMContentLoaded", function () {
-  var swiper = new Swiper(".mySwiper", {
+  // 섹션2) 산 목록 슬라이드로 보여주기
+  initializeSwiper();
+  // 섹션3) 추천코스 보여주기
+  initializeTrailRecommendation();
+  // 테마별 코스 큐레이션 모달창
+  initializeThemeCourseModal();
+});
+
+function initializeSwiper() {
+  new Swiper(".mySwiper", {
     slidesPerView: 6,
     spaceBetween: 30,
     centeredSlides: false,
@@ -15,8 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
-
-    /* 반응형 설정 */
     breakpoints: {
       768: {
         slidesPerView: 4,
@@ -32,15 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     },
   });
-});
-/* 섹션2) 산 목록 슬라이드로 보여주기 - 끝 */
+}
 
-/* 섹션3) 추천코스 보여주기 - 시작*/
-document.addEventListener("DOMContentLoaded", function () {
-  // 기본 설정값으로 북한산 정보 표시
+function initializeTrailRecommendation() {
   showInfo("북한산");
 
-  // 버튼 클릭 이벤트 리스너 설정
   const buttons = document.querySelectorAll(
     ".trail-recommendation-list button"
   );
@@ -51,10 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
       showInfo(this.textContent);
     });
   });
-});
+}
 
 function showInfo(place) {
-  let details = {
+  const details = {
     북한산: [
       {
         title: "비봉 코스",
@@ -195,20 +197,16 @@ function showInfo(place) {
     ],
   };
 
-  let courses = details[place];
+  const courses = details[place];
   let content = "";
 
   courses.forEach((course) => {
-    let difficultyClass = "";
-    if (course.difficulty === "매우 어려움") {
-      difficultyClass = "difficulty-very-difficult";
-    } else if (course.difficulty === "어려움") {
-      difficultyClass = "difficulty-difficult";
-    } else if (course.difficulty === "보통") {
-      difficultyClass = "difficulty-moderate";
-    } else if (course.difficulty === "쉬움") {
-      difficultyClass = "difficulty-easy";
-    }
+    const difficultyClass = {
+      "매우 어려움": "difficulty-very-difficult",
+      어려움: "difficulty-difficult",
+      보통: "difficulty-moderate",
+      쉬움: "difficulty-easy",
+    }[course.difficulty];
 
     content += `
       <div class="course-box">
@@ -231,34 +229,51 @@ function showInfo(place) {
           </div>
         </div>
       </div>
-      `;
+    `;
   });
 
   document.getElementById("recommendation-details").innerHTML = content;
 }
-/* 섹션3) 추천코스 보여주기 - 끝 */
 
-/* 테마별 코스 큐레이션 모달창 - 시작 */
-document.addEventListener("DOMContentLoaded", function () {
+// 테마별 코스 큐레이션 모달창
+function initializeThemeCourseModal() {
   const modal = document.getElementById("modal");
-  const modalImage = document.getElementById("modal-image");
-  const modalImageTitle = document.getElementById("modal-image-title");
+  const modalTitle = document.getElementById("modal-title");
   const modalDescription = document.getElementById("modal-description");
-  const additionalInfo = document.getElementById("additional-info");
+  const modalCourses = document.getElementById("modal-courses");
+  const span = document.getElementsByClassName("close")[0];
 
   const courseItems = document.querySelectorAll(".main-theme-course-item");
-  const span = document.getElementsByClassName("close")[0];
 
   courseItems.forEach(function (item) {
     item.onclick = function () {
       modal.style.display = "block";
-      modalImage.src = this.querySelector("img").src;
-      modalImageTitle.textContent = this.getAttribute("data-title");
+      modalTitle.textContent = this.getAttribute("data-title");
       modalDescription.textContent = this.getAttribute("data-description");
 
-      const additionalImage = this.getAttribute("data-additional-image");
-      const additionalInfoText = this.getAttribute("data-additional-info");
-      additionalInfo.innerHTML = `<img src="${additionalImage}" alt="Additional Image"><p>${additionalInfoText}</p>`;
+      const additionalInfo = JSON.parse(
+        this.getAttribute("data-additional-info")
+      );
+
+      modalCourses.innerHTML = additionalInfo
+        .map(
+          (info) => `
+        <div class="modal-course-item">
+            <img src="${info.image}" alt="${info.title}">
+            <div class="modal-course-details">
+                <div class="modal-course-title">${info.title}</div>
+                <div class="modal-course-description">${info.description}</div>
+                <div class="modal-transport">
+                    <div class="transport-title">교통 정보</div>
+                    <div>대중교통 : ${info.transport.public}</div>
+                    <div>자가이용 : ${info.transport.car}</div>
+                    <div>안내산악회 : ${info.transport.guide}</div>
+                </div>
+            </div>
+        </div>
+      `
+        )
+        .join("");
     };
   });
 
@@ -273,6 +288,4 @@ document.addEventListener("DOMContentLoaded", function () {
       modal.style.display = "none";
     }
   };
-});
-
-/* 테마별 코스 큐레이션 모달창 - 끝 */
+}
