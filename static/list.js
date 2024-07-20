@@ -70,7 +70,7 @@ const render = () => {
       <div class="Text">
       <h4 class="Name">${mnti.mntnm}</h4>
       </div>
-      <a href="index.html?page=details&mountain_keyword="${mnti.mntnm}"></a>
+      <a href="index.html?page=details&searchWrd=${mnti.mntnm}"></a>
       </article>
       `;
     })
