@@ -30,12 +30,12 @@ const getMntImgData = async (mntilistNo) => {
     const response = await fetch(url);
     const data = await response.json();
     console.log('getMntImgData', data)
-    const MntImgFile =Array.isArray(data.response.body.items.item)? data.response.body.items.item[0].imgfilename: data.response.body.items.item.imgfilename
+    const MntImgFile = (data.response.body.items == "")? "static/img/not-mntimgfile.jpg": Array.isArray(data.response.body.items.item)? `http://www.forest.go.kr/images/data/down/mountain/${data.response.body.items.item[0].imgfilename}`: `http://www.forest.go.kr/images/data/down/mountain/${data.response.body.items.item.imgfilename}`;
     displayMntInfoFigure(MntImgFile)
 }
 
 const displayMntInfoFigure = (MntImgFile) => {
-    document.querySelector(".details-mnt-information figure").innerHTML = `<img src="http://www.forest.go.kr/images/data/down/mountain/${MntImgFile}" alt="">`;
+    document.querySelector(".details-mnt-information figure").innerHTML = `<img src="${MntImgFile}" alt="">`;
 }
 
 const getTrailData = async () => {
