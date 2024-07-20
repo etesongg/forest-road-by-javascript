@@ -50,7 +50,7 @@ function initializeTrailRecommendation() {
     button.addEventListener("click", function () {
       buttons.forEach((btn) => btn.classList.remove("active"));
       this.classList.add("active");
-      showInfo(this.textContent.trim()); // 수정: textContent.trim() 추가
+      showInfo(this.textContent.trim());
     });
   });
 }
@@ -198,6 +198,13 @@ function showInfo(place) {
   };
 
   const courses = details[place];
+
+  // courses가 undefined인 경우를 체크하고 빈 배열로 초기화
+  if (!courses) {
+    console.error(`No details found for ${place}`);
+    return;
+  }
+
   let content = "";
 
   courses.forEach((course) => {
