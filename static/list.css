@@ -1,3 +1,4 @@
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 * {
   box-sizing: border-box;
 }
@@ -26,12 +27,13 @@ section.SearchMountain {
 }
 input[id = "SearchName"] {
   border: none;
-  border-bottom: 3px solid green;
   width: 33.33%;
   line-height: 30px;
   text-align: center;
   height: 40px;
   outline: none;
+  border: 2px solid #000;
+  border-radius: 50px 0 0 50px;
 }
 input[id = "SearchName"]::placeholder {
   opacity: 1;
@@ -44,25 +46,27 @@ input[id = "SearchName"]:focus::placeholder {
 }
 button[id = "SearchButton"] {
   border: none;
-  background-color: transparent;
   font-size: 24px;
   color: #fff;
   height: 40px;
-  background-color: green;
+  background-color: #000;
   cursor: pointer;
+  border-radius: 0 50px 50px 0;
+  width: 50px;
 }
 section.ShowMountain {
   padding: 50px 0;
 }
 .ShowMountain .heading {
   display: inline-block;
-  padding: 5px;
-  border-bottom: 4px solid green;
+  padding: 10px 15px;
+  border: 4px solid #000;
+  border-radius: 30px;
+  cursor: pointer;
 }
 .MountainGroup {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: flex-start; */
   gap: 20px;
 }
 .Mountain {
@@ -70,10 +74,10 @@ section.ShowMountain {
   margin-top: 40px;
   border: 3px solid #000;
   border-radius: 20px;
+  position: relative;
 }
 .Mountain .Image {
   overflow: hidden;
-  /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); */
   border-radius: 20px 20px 0 0;
 }
 .Mountain .Image img {
@@ -84,14 +88,69 @@ section.ShowMountain {
   transform: scale(1.2);
 }
 .Mountain .Text {
-  margin-bottom: 30px;
   border-top: 3px solid #000;
 }
 .Mountain .Text h4 {
   margin-top: 10px;
   text-align: center;
+  padding: 10px 0;
 }
-
+.Mountain a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+}
 footer {
   margin-top: 80px;
 }
+
+/* pagination */
+ul.pagination {
+  display: flex;
+  justify-content: center;
+}
+.page-item {
+  background-color: transparent;
+  margin: 0 5px;
+  border-radius: 50%;
+}
+.page-item a {
+  border: none;
+  border-radius: 50%;
+  color: #000;
+}
+.page-item a:hover {
+  color: #fff;
+  background-color: #777;
+}
+.page-item.active a {
+  background-color: #000;
+  border-radius: 50%;
+  color: #fff;
+}
+.page-item:first-child .page-link {
+  border-radius: 50%;
+}
+.page-item:last-child .page-link {
+  border-radius: 50%;
+}
+.page-item.prev a:hover,
+.page-item.next a:hover {
+  background-color: transparent;
+  color: #000;
+  cursor: pointer;
+}
+.page-item.prev:nth-of-type(2) a{
+  transform: scale(-1, 1);
+  transform: translateY(180deg);
+}
+
+/* 에러메세지 */
+.errorMessage {
+  text-align: center;
+  margin: 0 auto;
+}
+.errorMessage p {}
