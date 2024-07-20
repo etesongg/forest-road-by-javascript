@@ -34,7 +34,6 @@ const getMntiList = async () => {
   url.searchParams.set("pageNo", pageNo)
   const response = await fetch(url);
   const data = await response.json();
-  console.log(keyword)
   
   mntiList = data.response.body.items.item;
   nameList = mntiList.map((name) => name.mntnm);
@@ -136,7 +135,6 @@ const paginationRender = async() => {
 const moveToPage = (pageNum) => {
   pageNo = pageNum;
   getMntiList();
-  console.log(pageNum)
 }
 
 
@@ -165,8 +163,7 @@ const getMntiListByKeyword = async () => {
     errorRender(keyword)
     return;
   }
-  mntiList = data.response.body.items.item;
-  console.log('getMntiListByKeyword',mntiList)
+  mntiList = Array.isArray(data.response.body.items.item) ? data.response.body.items.item : [data.response.body.items.item];
   render()
 };
 
