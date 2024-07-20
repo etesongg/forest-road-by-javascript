@@ -50,7 +50,7 @@ function initializeTrailRecommendation() {
     button.addEventListener("click", function () {
       buttons.forEach((btn) => btn.classList.remove("active"));
       this.classList.add("active");
-      showInfo(this.textContent);
+      showInfo(this.textContent.trim()); // 수정: textContent.trim() 추가
     });
   });
 }
@@ -232,7 +232,14 @@ function showInfo(place) {
     `;
   });
 
-  document.getElementById("recommendation-details").innerHTML = content;
+  const recommendationDetails = document.getElementById(
+    "recommendation-details"
+  );
+  if (recommendationDetails) {
+    recommendationDetails.innerHTML = content;
+  } else {
+    console.error('Element with id "recommendation-details" not found.');
+  }
 }
 
 // 테마별 코스 큐레이션 모달창
