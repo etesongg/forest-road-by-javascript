@@ -1,172 +1,16 @@
-/* 섹션2) 산 목록 슬라이드로 보여주기 - 시작 */
 body {
-    background: #eee;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: #000;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.swiper {
-    width: 80%;
-    height: auto;
-    margin: auto;
-}
-
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-.swiper-slide img {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.swiper-slide span {
-    font-size: 14px;
-}
-
-.swiper-wrapper {
-    display: flex;
-    align-items: center;
-}
-
-/* 섹션2) 산 목록 슬라이드로 보여주기 - 끝 */
-
-
-
-
-/* 섹션3) 산 추천코스 보여주기 - 시작 */
-.trail-recommendation-details {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.course-box {
-    width: 100%;
-    height: 150px;
-    /* 높이를 키움 */
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    background-color: #fff;
-}
-
-
-
-
-
-.course-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-.course-description {
-    color: #888;
-    font-size: 13px;
-    margin-bottom: 10px;
-}
-
-.course-details {
-    display: flex;
-    justify-content: space-between;
-    /* 가로 정렬 */
-    font-size: 14px;
-}
-
-.detail-item {
-    padding: 7px;
-    display: flex;
-    align-items: center;
-}
-
-.icon {
-    font-size: 16px;
-    margin-right: 5px;
-}
-
-.difficulty-text {
-    color: #d6336c;
-}
-
-.trail-recommendation-section {
-    padding: 50px 0;
-    /* text-align: center; */
-}
-
-.trail-recommendation-section h3 {
-    font-size: 24px;
-    margin: 0;
-    text-align: center;
-}
-
-.trail-recommendation-section p {
-    margin: 5px;
-    text-align: center;
-}
-
-.trail-recommendation-container {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.trail-recommendation-list {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-right: 20px;
-    border-radius: 10px;
-    justify-content: space-between;
-}
-
-.trail-recommendation-list button {
-    width: 200px;
-    padding: 10px 20px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.trail-recommendation-details {
-    width: 650px;
-    height: 290px;
-    padding: 20px;
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* 섹션3) 산 추천코스 보여주기 - 끝 */
-
-
-
+/* 섹션1 - 시작 */
 .main-recommendation-section {
     width: 100%;
-    height: 40vh;
+    height: 300px;
     text-align: center;
     padding: 50px 20px;
     margin-bottom: 20px;
@@ -179,20 +23,18 @@ body {
 }
 
 .main-recommendation {
-    width: 50%;
-    height: 80%;
-    text-align: center;
-    padding: 100px 0;
+    width: 100%;
+    height: 300px;
     background-color: rgba(255, 255, 255, 0.8);
-    margin: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .main-recommendation-weather {
     text-align: center;
-    margin-top: 20px;
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 10px;
@@ -200,30 +42,24 @@ body {
     flex: 1;
 }
 
-.main-search-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 40px;
+.main-recommendation-text {
+    background-color: #f0f0f0;
+    text-align: center;
+    flex: 1;
 }
 
-.main-search-area input {
-    padding: 15px 15px;
-    padding-right: 50px;
-    /* 버튼이 들어갈 공간 확보 */
-    width: 50%;
-    /* 부모 요소의 너비에 맞춤 */
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    /* 모서리를 둥글게 설정 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
+.main-recommendation-text p {
+    margin: 10px 0;
+    font-size: 18px;
 }
 
-.main-search-area button {
-    padding: 14px 20px;
+.main-recommendation-text h1 {
+    margin: 10px 0;
+    font-size: 32px;
+}
+
+.main-recommendation-details-button {
+    padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border: none;
@@ -249,21 +85,51 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* 섹션2 - 시작 */
+.main-search-area {
+    position: relative;
+    width: 55%;
+    margin: 0 auto 20px;
+}
+
+.main-search-area input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s;
+    /* 부드러운 전환 효과 */
+}
+
+.main-search-area input:focus {
+    border: 1.5px solid #000;
+    /* border-color: #76c7c0; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-search-area button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #ccc;
+}
+
 .main-mountain-list-section {
-    padding: 20px 0;
     text-align: center;
 }
 
 .main-mountain-list-section h3 {
     font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.main-mountain-list-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    margin: 80px 0 30px 0;
 }
 
 .main-mountain-list {
@@ -273,96 +139,358 @@ body {
     scroll-behavior: smooth;
 }
 
-
-
-.main-reviews-area {
+.swiper {
     width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+.swiper-slide {
     text-align: center;
-    padding: 50px 0;
-    background-color: gainsboro;
-    margin: 20px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.swiper-slide img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
     border-radius: 10px;
+    margin: 10px 0 10px 0;
+}
+
+.swiper-slide span {
+    font-size: 14px;
+}
+
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.main-banner-area {
+    width: 100%;
+    height: 100px;
+    margin-top: 80px;
+    background-color: #00bf93;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-banner-text {
+    margin-top: 20px;
+}
+
+.main-banner-text i {
+    font-size: 1em;
+    font-style: normal;
+}
+
+.main-banner-text h5 {
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    font-weight: 700;
+    margin: 0;
+}
+
+.main-banner-text p {
+    margin-top: 5px;
+    color: white;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.main-banner-area a {
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+/* 섹션2 - 끝 */
+
+/* 섹션3 - 시작 */
+
+.difficulty-very-difficult {
+    color: red;
+    font-weight: 700;
+}
+
+.difficulty-difficult {
+    color: red;
+}
+
+.difficulty-moderate {
+    color: orange;
+}
+
+.difficulty-easy {
+    color: rgb(8, 157, 8);
+}
+
+.trail-recommendation-section {
+    padding: 80px 0;
+    background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.main-reviews-area blockquote {
+.trail-recommendation-section h3 {
     font-size: 24px;
     margin: 0;
-    color: #555;
-}
-
-.main-reviews-area button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-
-
-.main-courses {
-    padding: 50px 0;
     text-align: center;
 }
 
-.main-courses h3 {
+.trail-recommendation-section p {
+    margin: 5px;
+    text-align: center;
+}
+
+.trail-recommendation-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.trail-recommendation-list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-right: 25px;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+.trail-recommendation-list button {
+    font-size: 15px;
+    width: 35vh;
+    padding: 10px 20px;
+    margin: 0.5px;
+    cursor: pointer;
+    border: 0.1px solid rgb(203, 201, 201);
+    border-radius: 5px;
+    background-color: transparent;
+    box-shadow: none;
+    transition: border-color 0.3s, color 0.3s;
+}
+
+.trail-recommendation-list button.active {
+    border: 2px solid black;
+    color: #000;
+}
+
+.trail-recommendation-details {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70vh;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.trail-recommendation-list i {
+    font-size: 16px;
+    font-style: inherit;
+}
+
+.course-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid gray;
+    flex-grow: 1;
+}
+
+.course-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.course-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.detail-item {
+    padding: 7px;
+    display: flex;
+    align-items: center;
+}
+
+/* 섹션3 - 끝 */
+
+/* 섹션4 - 시작 */
+.main-theme-courses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.main-theme-courses h3 {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin: 70px 0 30px 0;
 }
 
-.main-course-grid {
+.main-theme-course-grid {
     display: grid;
-    grid-template-columns: repeat(2, 450px);
-    grid-template-rows: repeat(3, 200px);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
     justify-content: center;
+    width: 600px;
 }
 
-.main-course-item {
-    background-color: #d0d0d0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.main-theme-course-item {
+    position: relative;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: auto;
+    width: 500px;
+    height: 150px;
 }
 
-.main-recommendation {
-    background-color: rgba(255, 255, 255, 0.8);
+.main-theme-course-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.theme-course-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    gap: 20px;
 }
 
-.main-recommendation-text {
-    text-align: center;
-    flex: 1;
-}
-
-.main-recommendation-text p {
-    margin: 10px 0;
+.theme-course-title {
+    font-weight: bold;
     font-size: 18px;
+    line-height: 1.5;
 }
 
-.main-recommendation-text h1 {
-    margin: 10px 0;
-    font-size: 32px;
+.theme-course-subtitle {
+    font-size: 15px;
+    margin-bottom: 5px;
 }
 
-.main-recommendation-details-button {
-    padding: 10px 20px;
-    font-size: 16px;
+/* 섹션4 - 끝 */
+
+/* 모달 스타일 - 시작 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.modal-image-container {
+    position: relative;
+}
+
+.modal-image-title {
+    position: absolute;
+    bottom: 40%;
+    left: 25%;
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    padding: 5px 10px;
+}
+
+#modal-description {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 20px 0 5px 0;
+}
+
+#additional-info {
+    margin: 5px;
+    /* text-align-last: left; */
+}
+
+#additional-info img {
+    width: 50%;
+    height: auto;
+    display: block;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
     cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* 모달 스타일 - 끝 */
+
+/* 반응형 - 시작 */
 @media (max-width: 768px) {
     .main-recommendation {
         width: 80%;
@@ -376,13 +504,28 @@ body {
         width: 100%;
     }
 
-    .main-course-item {
-        height: 200px;
-        width: 400px;
+    .main-theme-course-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
     }
 
-    .main-course-grid {
-        grid-template-columns: repeat(1, 1fr);
+    .main-theme-course-item img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .main-theme-course-grid {
+        grid-template-columns: 1fr;
         grid-template-rows: auto;
     }
 
@@ -393,14 +536,8 @@ body {
 
 @media (max-width: 576px) {
     .main-recommendation {
-        flex-direction: row;
+        flex-direction: column;
         padding: 20px;
-    }
-
-    .main-recommendation-text,
-    .main-recommendation-weather {
-        width: 50%;
-        margin-bottom: 0;
     }
 
     .main-search-area {
@@ -426,23 +563,42 @@ body {
         width: 100%;
     }
 
-    .main-mountain-list-container {
+    .main-mountain-list {
         flex-direction: column;
         width: 100%;
     }
 
-    .main-mountain-list-item {
-        width: 300px;
-        margin: 10px 0;
+    .swiper-slide {
+        width: 80%;
+        margin: 10px auto;
     }
 
-    .main-course-grid {
+    .main-theme-course-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
     }
 
-    .main-course-item {
-        width: 300px;
-        height: 100px;
+    .main-theme-course-item {
+        width: 100%;
+        height: auto;
+    }
+
+    .main-recommendation-text h1 {
+        font-size: 24px;
+    }
+
+    .main-banner-area {
+        height: auto;
+        padding: 20px;
+    }
+
+    .main-banner-text h5 {
+        font-size: 18px;
+    }
+
+    .main-banner-text p {
+        font-size: 14px;
     }
 }
+
+/* 반응형 - 끝 */
