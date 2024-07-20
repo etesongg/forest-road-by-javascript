@@ -42,8 +42,8 @@ const getMntiList = async () => {
   for (let i = 0; i < codeList.length; i++) {
     await getMntiImg(codeList[i], i);
   }
-  await render();
-  await paginationRender();
+  render();
+  paginationRender();
 };
 getMntiList()
 
@@ -70,14 +70,14 @@ const render = () => {
       <div class="Text">
       <h4 class="Name">${mnti.mntnm}</h4>
       </div>
-      <a href="list.html?page=details&mountain_keyword="${mnti.mntnm}"></a>
+      <a href="index.html?page=details&mountain_keyword="${mnti.mntnm}"></a>
       </article>
       `;
     })
     .join("");
   document.querySelector(".MountainGroup").innerHTML = mntiHTML;
+  paginationRender();
   makeEventListener();
-
 };
 
 
