@@ -1,0 +1,39 @@
+/* 웹폰트 */
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cafe24Ssurround';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ########## Common Css ########## */
+/* 전체 폰트 */
+* {
+  font-family: 'Pretendard-Regular','Cafe24Ssurround', sans-serif;
+}
+body {
+  font-size: 16px;
+}
+h1 {
+  font-weight: 700;
+}
+h3 {
+  font-weight: 700;
+}
+/* ########## Header Css ########## */
+
+
+/* ########## main css ########## */
+/* .main-reviews-area {
+  font-weight: 700;
+}
+.trail-recommendation-list button {
+  font-weight: 600;
+} */
+

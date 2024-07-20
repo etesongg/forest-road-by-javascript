@@ -7,21 +7,8 @@ body {
   margin: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+h1, h2, h3, h4, h5, h6, p {
   margin: 0;
-}
-
-header,
-footer {
-  background-color: #ccc;
-  text-align: center;
-  padding: 50px;
 }
 
 main {
@@ -38,7 +25,6 @@ section.SearchMountain {
 }
 
 input[id="SearchName"] {
-  border: none;
   width: 33.33%;
   line-height: 30px;
   text-align: center;
@@ -76,9 +62,10 @@ section.ShowMountain {
 
 .ShowMountain .heading {
   display: inline-block;
-  padding: 10px 15px;
-  border: 4px solid #000;
-  border-radius: 30px;
+  text-align: center;
+  /* padding: 10px 15px; */
+  /* border-bottom: 3px solid #000; */
+  /* border-radius: 30px; */
   cursor: pointer;
 }
 
@@ -125,9 +112,6 @@ section.ShowMountain {
   top: 0;
   left: 0;
   border-radius: 20px;
-}
-footer {
-  margin-top: 80px;
 }
 
 /* pagination */
@@ -177,3 +161,15 @@ ul.pagination {
   margin: 0 auto;
 }
 .errorMessage p {}
+
+/* ##### responsive CSS ##### */
+@media (max-width: 992px) {
+  /* 검색 */
+  input[id="SearchName"] {
+    width: calc(100% - 50px);
+  }
+  /* 산목록 */
+  .Mountain {
+  width: calc((100% - 40px) / 3);
+  }
+}

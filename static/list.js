@@ -3,9 +3,6 @@ const MOUNTAINS_KEY = config.KEY.mountains_key;
 const MOUNTAINS_URL = config.URL.mountains_url;
 const TRAIL_URL = config.URL.trail_url;
 
-
-// const MOUNTAINS_KEY = `AXa61V6%2FXJxE8zJezVhN70U9qWt%2BwsYy%2BjtQkZj7dFMID%2FmdDwFu%2BlWAXpHw6deAA7IVCLauk5FAsBiv98OXhA%3D%3D`;
-
 let url = new URL(
   `${TRAIL_URL}openapi/service/cultureInfoService/gdTrailInfoOpenAPI?searchWrd=2619990400&ServiceKey=${MOUNTAINS_KEY}&numOfRows=18`
 );
