@@ -36,37 +36,33 @@ body {
 
 .details-mnt-information {
   width: 100%;
-  height: 400px;
+  /* height: 400px; */
   margin-top: 80px;
   /* border: 2px solid red; */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .detailsInner {
-  /* border: 2px solid blueviolet; */
-  width: 100%;
-  height: 400px;
-}
-
-.mntCol {
-  width: 600px;
-}
-
-.mntCol img {
+  border: 2px solid rgb(78, 254, 43);
   width: 100%;
 }
 
 .mntCol-lg-6 {
-  /* border: 2px solid rgb(43, 241, 47); */
-  width: 600px;
-  height: 350px;
+  width: 50%;
+  border: 2px solid blue;
   margin-left: 50px;
-  margin-top: 40px;
+  margin-top: 20px;
+}
+
+.mntCol-lg-6 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .mntText-lg-6 {
   width: 500px;
-  height: 350px;
+  /* height: 350px; */
   margin-left: 0px;
   margin-top: 40px;
 }
@@ -134,13 +130,13 @@ body {
   background-color: white;
   margin-top: 50px;
   width: 100%;
-  height: 420px;
+  height: auto;
   margin-bottom: 100px;
 }
 
 .card {
   margin-top: 40px;
-  margin-left: 80px;
+  margin-left: 20px;
 }
 
 .View_info_box_course_right__Eqk9V {
@@ -148,7 +144,7 @@ body {
   align-items: center;
   border: 1px solid red;
   margin-top: -70px;
-  margin-left: 660px;
+  margin-left: auto;
   width: 300px;
 }
 
@@ -186,6 +182,10 @@ html {
   height: 200px !important;
   margin-bottom: 100px;
   background-color: aqua !important;
+} */
+/* .check-map {
+  background-color: #00bf93;
+  background-size: 100vw;
 } */
 
 .check-map h1 {
@@ -232,6 +232,7 @@ html {
   position: relative;
   margin-top: 100px;
   font-family: Arial, Helvetica, sans-serif;
+  margin-top: 150px;
 }
 .detail_info h1:before {
   content: "";
@@ -241,6 +242,7 @@ html {
   height: 5px;
   width: 55px;
   background-color: #111;
+  margin-top: 150px;
 }
 .detail_info h1:after {
   content: "";
@@ -258,151 +260,14 @@ html {
   margin-top: 20px;
 }
 
-/*  태블릿 반응형*/
-
-@media screen and (max-width: 768px) {
-  .details-mnt-information {
-    margin-left: 20px;
-    width: 550px;
-    height: 300px;
-    margin-top: 50px;
-    margin-left: 30px;
-    /* border: 2px solid red; */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  }
-  .detailsInner {
-    /* border: 2px solid blueviolet; */
-    width: 550px;
-    height: 300px;
-  }
-
-  .mntCol-lg-6 {
-    /* border: 2px solid rgb(43, 241, 47); */
-    width: 490px;
-    height: 200px;
-    margin-left: 30px;
-    margin-top: 40px;
-  }
-
-  .mntText-lg-6 {
-    width: 500px;
-    height: 300px;
-    margin-left: 10px;
-    margin-top: 90px;
-    margin-bottom: 50px;
-    /* border: 2px solid rgb(43, 241, 47); */
-  }
-
-  .map-container {
-    width: 480px;
-    height: 100px;
-    margin-top: 0px;
-    margin-left: 200px;
-    /* border: 2px solid rgb(43, 241, 47); */
-  }
-
-  .map-btn {
-    margin-left: 260px;
-    margin-top: -40px;
-    width: 200px;
-    height: 40px;
-    /* border: 2px solid rgb(43, 241, 47); */
-  }
-  .map-container p {
-    margin-top: 50px;
-    font-weight: 400;
-    font-size: 30px;
-
-    margin-left: 30px;
-    width: 300px;
-    border: 2px solid rgb(43, 43, 241);
-  }
-
-  .details-mnt-map {
-    width: 300px;
-    height: 100px;
-    margin-left: -70px;
-  }
-
-  #map {
-    width: 300px;
-    height: 300px;
-    margin-left: 60px;
-    margin-top: 20px;
-  }
-
-  .tag-h6 {
-    font-size: 25px;
-    border: 2px solid rgb(28, 27, 28);
-    margin-top: 90px;
-  }
-
-  .map-imagebox {
-    width: 290px;
-    margin-left: 170px;
-    margin-top: 30px;
-    border: 2px solid rgb(32, 235, 107);
-  }
-
-  .detailsPlace-title {
-    margin-top: 40px;
-    margin-bottom: 50px;
-    font-size: 20px;
-    font-weight: 800;
-    width: 200px;
-    margin-left: 0px;
-    margin-top: 160px;
-    text-align: center;
-  }
-
-  .detailsPlace-mother {
-    margin-top: 50px;
-    width: 100px;
-    height: 120px;
-    margin-bottom: 100px;
-    margin-left: 0px;
-  }
-
-  .details-mnt-related-images {
-  }
-
-  .card {
-    margin-top: 40px;
-    margin-left: 80px;
-    margin-bottom: 30px;
-  }
-  .View_info_box_course_right__Eqk9V {
-    display: flex;
-    align-items: center;
-    border: 1px solid red;
-    margin-top: -70px;
-    margin-left: 20px;
-    width: 300px;
-  }
-
-  .View_info_box_course_right__Eqk9V p {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    position: relative;
-    background-size: cover;
-    background-position: 0;
-    background-repeat: no-repeat;
-    color: grey;
-  }
-}
-
-/* 디테일 페이지 중간 슬로건 효과 */
-
-/* 디테일 페이지 중간 슬로건 효과 */
+/* 포레스트 로드 가운드 애니메이션 글자 */
 
 h1.sixth {
   position: relative;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  padding: 30px;
-  color: #07742f;
-  margin-top: 80px;
-  margin-left: 370px;
+  color: #00bf93;
+  margin-left: 33%;
+  margin-top: 15%;
+  margin-bottom: 5%;
 }
 
 h1.sixth:before,
@@ -413,12 +278,10 @@ h1.sixth:after {
   top: 1px;
   height: 100%;
   font-size: 1.25em;
-  color: rgb(96, 95, 95);
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: tomato;
+  margin: 7px;
 
   transition: all 0.5s ease;
-  padding: 30px;
-  margin-top: 80px;
 }
 
 h1.sixth:after {
@@ -433,55 +296,75 @@ h1.sixth:hover:after {
   transform: translateX(5px);
 }
 
-@media screen and (max-width: 768px) {
-  h1.sixth {
-    position: relative;
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-    padding: 30px;
-    color: #07742f;
-    font-size: 25px;
-    margin-top: 210px;
-    margin-left: 170px;
+/*  태블릿 반응형*/
+
+@media (max-width: 992px) {
+  .details-mnt-information {
+    margin-left: 20px;
+    width: 90%;
+
+    border: 2px solid red;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+  .mntCol-lg-6 {
+    width: 80%;
+
+    border: 2px solid blue;
+    margin-top: 0;
+    margin: 0 auto;
   }
 
-  h1.sixth:before,
-  h1.sixth:after {
-    content: "[";
-    display: inline-block;
-    position: relative;
-    top: 1px;
+  .mntCol-lg-6 img {
+    width: 100%;
     height: 100%;
-    font-size: 1em;
-    color: tomato;
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-
-    transition: all 0.5s ease;
-    padding: 10px;
-    margin-top: 220px;
+    object-fit: cover;
   }
 
-  h1.sixth:after {
-    content: "]";
+  .mntText-lg-6 {
+    width: 500px;
+    height: 350px;
+    margin-left: 0px;
+    margin-top: 40px;
   }
 
-  h1.sixth:hover:before {
-    transform: translateX(-5px);
+  .detailsInner {
+    margin: 0 auto;
   }
 
-  h1.sixth:hover:after {
-    transform: translateX(5px);
+  .View_info_box_course_right__Eqk9V {
+    margin: 0 auto;
+    height: 100px;
+    border: 1px solid green;
+    margin-top: 140px;
   }
 
-  .card {
-    width: 300px;
+  .View_info_box_course_right__Eqk9V p {
+    height: auto;
+    border: 1px solid rgb(246, 46, 146);
   }
-  * {
+
+  .sixth.col {
+    text-align: center;
+  }
+
+  .map-imagebox {
     margin: 0;
-    padding: 0;
+    margin-top: 80px;
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .View_info_box_course_right__Eqk9V {
+    margin: 0;
+    height: 50px;
+    border: 1px solid green;
+    margin-top: 0px;
   }
 
-  .container {
-    width: 100vw;
-    height: 100vh;
+  .View_info_box_course_right__Eqk9V p {
+    height: auto;
+    border: 1px solid rgb(246, 46, 146);
   }
+}
+@media (max-width: 576px) {
 }
