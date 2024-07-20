@@ -240,20 +240,15 @@ function showInfo(place) {
 
 /* 테마별 코스 큐레이션 모달창 - 시작 */
 document.addEventListener("DOMContentLoaded", function () {
-  // 모달 요소 가져오기
-  var modal = document.getElementById("modal");
-  var modalImage = document.getElementById("modal-image");
-  var modalImageTitle = document.getElementById("modal-image-title"); // 추가된 부분
-  var modalDescription = document.getElementById("modal-description");
-  var additionalInfo = document.getElementById("additional-info");
+  const modal = document.getElementById("modal");
+  const modalImage = document.getElementById("modal-image");
+  const modalImageTitle = document.getElementById("modal-image-title");
+  const modalDescription = document.getElementById("modal-description");
+  const additionalInfo = document.getElementById("additional-info");
 
-  // 글씨 박스 요소 가져오기
-  var courseItems = document.querySelectorAll(".main-theme-course-item");
+  const courseItems = document.querySelectorAll(".main-theme-course-item");
+  const span = document.getElementsByClassName("close")[0];
 
-  // 닫기 버튼 요소 가져오기
-  var span = document.getElementsByClassName("close")[0];
-
-  // 글씨 박스를 클릭했을 때 모달을 보이게 하기
   courseItems.forEach(function (item) {
     item.onclick = function () {
       modal.style.display = "block";
@@ -261,23 +256,23 @@ document.addEventListener("DOMContentLoaded", function () {
       modalImageTitle.textContent = this.getAttribute("data-title");
       modalDescription.textContent = this.getAttribute("data-description");
 
-      // 추가 정보를 추가하는 부분
-      var additionalImage = this.getAttribute("data-additional-image");
-      var additionalInfoText = this.getAttribute("data-additional-info");
+      const additionalImage = this.getAttribute("data-additional-image");
+      const additionalInfoText = this.getAttribute("data-additional-info");
       additionalInfo.innerHTML = `<img src="${additionalImage}" alt="Additional Image"><p>${additionalInfoText}</p>`;
     };
   });
 
-  // 닫기 버튼을 클릭했을 때 모달을 숨기기
-  span.onclick = function () {
-    modal.style.display = "none";
-  };
+  if (span) {
+    span.onclick = function () {
+      modal.style.display = "none";
+    };
+  }
 
-  // 모달 외부를 클릭했을 때 모달을 숨기기
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
     }
   };
 });
+
 /* 테마별 코스 큐레이션 모달창 - 끝 */
