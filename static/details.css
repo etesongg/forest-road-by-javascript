@@ -43,13 +43,12 @@ body {
 }
 
 .detailsInner {
-  border: 2px solid rgb(78, 254, 43);
   width: 100%;
 }
 
 .mntCol-lg-6 {
   width: 50%;
-  border: 2px solid blue;
+
   margin-left: 50px;
   margin-top: 20px;
 }
@@ -80,7 +79,7 @@ body {
   font-size: 24px;
   margin-top: 40px;
   margin-bottom: 30px;
-  /* border: 2px solid hotpink; */
+
   margin-left: 240px;
   width: 400px;
 }
@@ -90,13 +89,20 @@ body {
   margin-top: -120px;
 }
 
+.sixth.col {
+  text-align: center;
+}
+
 .details-Line {
   border: 1px solid gray;
 }
 
+.map-title-details {
+  margin-top: 8%;
+  margin-left: 17%;
+}
 .tag-h6 {
   font-size: 25px;
-  border: 2px solid rgb(68, 122, 231);
   margin-top: 0px;
   margin-bottom: 80px;
   width: 200px;
@@ -106,8 +112,8 @@ body {
 .map-imagebox {
   width: 800px;
   margin-left: 220px;
-  margin-top: 80px;
-  height: 350px;
+  margin-top: 4%;
+  height: 440px;
   border: 2px solid rgb(220, 18, 18);
 }
 
@@ -265,7 +271,7 @@ html {
 h1.sixth {
   position: relative;
   color: #00bf93;
-  margin-left: 33%;
+
   margin-top: 15%;
   margin-bottom: 5%;
 }
@@ -347,10 +353,14 @@ h1.sixth:hover:after {
     text-align: center;
   }
 
+  .map-title-details {
+    margin-top: 10%;
+    margin-left: 1%;
+  }
   .map-imagebox {
     margin: 0;
-    margin-top: 80px;
-    width: 100%;
+    margin-top: 40px;
+    width: 80%;
   }
 }
 @media (max-width: 768px) {
