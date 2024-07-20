@@ -16,9 +16,12 @@
 /* 전체 폰트 */
 * {
   font-family: 'Pretendard-Regular','Cafe24Ssurround', sans-serif;
+  box-sizing: border-box;
 }
 body {
   font-size: 16px;
+  /* overflow: overlay; */
+  /* overflow-x: hidden; */
 }
 h1 {
   font-weight: 700;
@@ -26,14 +29,93 @@ h1 {
 h3 {
   font-weight: 700;
 }
-/* ########## Header Css ########## */
-
-
-/* ########## main css ########## */
-/* .main-reviews-area {
-  font-weight: 700;
+a {
+  text-decoration: none;  
 }
-.trail-recommendation-list button {
-  font-weight: 600;
-} */
-
+/* ########## Header Css ########## */
+header.common-header {
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: #fff;
+  z-index: 10000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.header-inner {
+  height: 80px;
+  /* justify-content: space-between; 로고와 서브페이지 사이를 넓게할경우 */
+  display: flex;
+  max-width: 1400px;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+header.common-header .logo h1 {
+  margin: 0;
+  font-size: 24px;
+}
+header.common-header .logo h1 a {
+  margin: 0;
+  color: #00bf93;
+  font-size: 24px;
+  margin-right: 20px; /*로고와 서브페이지 사이를 넓게 할 경우 생략가능*/
+  position: relative;
+  font-family: 'Cafe24Ssurround';
+}
+header.common-header .logo h1 a:after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  top: 0;
+  right: -10px;
+  background-color: #ddd;
+}
+header.common-header nav ul {
+  margin: 0;
+  padding: 0;
+}
+header.common-header nav ul li {
+  list-style: none;
+  font-size: 20px;
+}
+header.common-header nav ul li a {
+  cursor: pointer;
+}
+/* ########## Footer Css ########## */
+footer.common-footer {
+  background-color: #333;
+  margin-top: 80px;
+  padding: 40px 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding-bottom: 60px;
+}
+.footer-inner {
+  max-width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+  color: #eee;
+}
+.footer-inner .logo h1 a {
+  color: #00bf93;
+  font-size: 24px;
+  font-family: 'Cafe24Ssurround';
+}
+.footer-inner .text {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.footer-inner .text p {
+  margin: 0;
+  line-height: 1.8em;
+  font-size: 1.2em;
+}
+@media (max-width: 992px) {
+  .footer-inner .text {
+    width: 70%;
+  }
+}
