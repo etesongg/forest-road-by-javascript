@@ -167,12 +167,11 @@ body {
 }
 
 .trail-recommendation-section p {
-    margin: 5px;
+    margin: 5px 0 23px 0;
     text-align: center;
 }
 
 .trail-recommendation-container {
-    /* margin-top: 30px; */
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -183,21 +182,18 @@ body {
 }
 
 .trail-recommendation-list {
-    height: 100%;
     display: flex;
     flex-direction: column;
-    /* gap: 5px; */
-    margin-right: 25px;
+    margin-right: 10px;
     border-radius: 10px;
     justify-content: space-between;
-    max-width: 100%;
+    max-width: 80%;
     overflow: hidden;
 }
 
 .trail-recommendation-list button {
     font-size: 15px;
-    width: 35vh;
-    height: 100%;
+    width: 30vw;
     padding: 10px 20px;
     margin: 7px;
     cursor: pointer;
@@ -206,6 +202,7 @@ body {
     background-color: transparent;
     box-shadow: none;
     transition: border-color 0.3s, color 0.3s;
+    box-sizing: border-box;
 }
 
 .trail-recommendation-list button.active {
@@ -219,7 +216,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
     width: 50vw;
-    height: 100%;
     border-radius: 10px;
     padding-top: 5px;
 }
@@ -241,6 +237,7 @@ body {
     background-color: #fff;
     box-shadow: 0 0 0 1px gray;
     flex-grow: 1;
+    box-sizing: border-box;
 }
 
 .course-title {
@@ -267,11 +264,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 90%;
     padding: 10px;
     text-align: center;
     overflow: hidden;
-    max-width: 80vw;
     margin: 0 auto;
 }
 
@@ -316,7 +312,6 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
     background: rgba(0, 0, 0, 0.1);
     color: white;
     display: flex;
@@ -460,7 +455,8 @@ body {
     .trail-recommendation-list {
         margin-right: 0;
         margin-bottom: 20px;
-        width: 100%;
+        width: 80%;
+        padding-right: 10px;
     }
 
     .trail-recommendation-list button {
@@ -468,7 +464,7 @@ body {
     }
 
     .trail-recommendation-details {
-        width: 100%;
+        width: 80%;
     }
 
     .main-theme-course-grid {
