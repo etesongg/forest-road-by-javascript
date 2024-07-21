@@ -29,8 +29,8 @@ body {
 }
 
 .container {
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw; */
+  /* height: 100vh; */
 }
 html {
   height: 100%;
@@ -44,11 +44,19 @@ body {
 .details-mnt-information {
   width: 100%;
   /* height: 400px; */
-  margin-top: 80px;
   /* border: 2px solid red; */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 20px;
+  margin: 0;
+  margin: 0 auto;
+  margin-top: 130px;
 }
-
+.detailsInner {
+  height: auto;
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px 10px;
+}
 .mntCol-lg-6 {
   width: 50%;
 
@@ -96,6 +104,7 @@ body {
   text-align: center;
   background-color: #00bf93;
   height: 100px;
+  padding: 0;
 }
 
 .details-Line {
@@ -113,12 +122,15 @@ body {
   width: 200px;
   height: 100px;
 }
-
+/* 지도 위치 아이콘 */
+.fa-location-arrow {
+  animation: bigScale 1 linear infinite both;
+}
 .map-imagebox {
-  width: 800px;
-  margin-left: 220px;
+  width: 66.6666%;
+  margin: 0 auto;
   margin-top: 4%;
-  border: 2px solid rgb(2, 2, 2);
+  /* border: 2px solid rgb(2, 2, 2); */
   height: 420px;
 }
 
@@ -307,6 +319,28 @@ h1.sixth:hover:after {
   transform: translateX(5px);
 }
 
+
+/* details-mnt-weather */
+.details-mnt-weather {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  margin-top: 30px;
+  gap: 10px;
+}
+.details-mnt-weather .card {
+  margin: 0;
+  padding: 5px 10px;
+}
+.details-mnt-weather .card .date {
+  text-align: center;
+}
+.details-mnt-weather .card img {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
 /* .greenBox {
   background-color: #00bf93;
   width: 100%;
@@ -317,10 +351,8 @@ h1.sixth:hover:after {
 
 @media (max-width: 1198px) {
   .mntText-lg-6 {
-    width: 90%;
-
-    margin-left: 10%;
-    margin-top: 2%;
+    width: 80%;
+    margin: 0 auto;
   }
 
   .mntCol-lg-6 {
@@ -329,13 +361,25 @@ h1.sixth:hover:after {
     margin-top: 0;
     margin: 0 auto;
   }
+  .mntText-lg-6 h5 {
+    text-align: center;
+    margin: 30px 0;
+  }
+  .details-mnt-related-images {
+    margin: 0 auto;
+  }
+  .details-mnt-related-images .row {
+    justify-content: center;
+  }
+  .details-mnt-weather {
+    width: 100%;
+  }
 }
 
 @media (max-width: 992px) {
   .details-mnt-information {
-    margin-left: 20px;
+    /* margin-left: 20px; */
     width: 90%;
-
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   }
   .mntCol-lg-6 {
@@ -353,7 +397,6 @@ h1.sixth:hover:after {
 
   .mntText-lg-6 {
     width: 500px;
-    height: 350px;
     margin-left: 10%;
     margin-top: 2%;
   }
@@ -379,12 +422,21 @@ h1.sixth:hover:after {
   .map-title-details {
     margin-top: 10%;
     margin-left: 1%;
+    margin-left: 0;
   }
   .map-imagebox {
-    margin: 0;
+    margin: 0 auto;
     margin-top: 40px;
     width: 80%;
-    border: 2px solid rgb(2, 2, 2);
+    /* border: 2px solid rgb(2, 2, 2); */
+  }
+  .details-mnt-weather {
+    flex-wrap: wrap;
+    width: 100%;
+    display: none;
+  }
+  .details-mnt-weather .card {
+    width: 50%;
   }
 }
 @media (max-width: 768px) {
@@ -401,7 +453,7 @@ h1.sixth:hover:after {
 
   .mntText-lg-6 {
     width: 85%;
-    height: 350px;
+    /* height: 350px; */
     margin-left: 10%;
     margin-top: 3%;
   }
@@ -419,5 +471,16 @@ h1.sixth:hover:after {
 
     margin-top: 0;
     margin: 0 auto;
+  }
+}
+@keyframes bigScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
   }
 }

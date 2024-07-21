@@ -72,10 +72,10 @@ const displayMntInfoArticle = (info) => {
     </a>
         <div class="collapse" id="collapseExample">
         <div class="card card-body">
-            <b>추가로 100대명산 선정이유 | ${info.aeatreason}
-            <br>산정보개관 | ${info.overview}
-            <br>대중교통정보설명 | ${info.transport}
-            <br>주변관광정보설명 | ${info.tourisminf}</b>
+            <p><b>추가로 100대명산 선정이유</b> ${info.aeatreason}</p>
+            <p><b>산정보개관</b> ${info.overview}</p>
+            <p><b>대중교통정보설명</b> | ${info.transport}</p>
+            <p><b>주변관광정보설명</b> | ${info.tourisminf}</p>
         </div>
         </div>
         </div>`;
@@ -212,8 +212,8 @@ const displayWeatherSummary = (weatherSummary) => {
     const weatherContainer = document.querySelector(".details-mnt-weather");
     weatherContainer.innerHTML = weatherSummary.map(day => `
         <div class="weather-day col card">
-            <p>${day.date}</p>
-            <img src="${day.iconUrl}" alt="날씨 아이콘">
+            <p class="date">${day.date}</p>
+            <img src="${day.iconUrl}" alt="날씨 아이콘"> 
             <p>최고 온도: ${day.maxTemp + 3}°C</p>
             <p>최저 온도: ${day.minTemp + 3}°C</p>
         </div>
