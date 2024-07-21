@@ -7,8 +7,6 @@ let url = new URL(
   `${TRAIL_URL}openapi/service/cultureInfoService/gdTrailInfoOpenAPI?searchWrd=2619990400&ServiceKey=${MOUNTAINS_KEY}&numOfRows=18`
 );
 
-const searchButton = document.querySelector("#SearchButton");
-
 let mntiList = [];
 let codeList = [];
 let imgList = [];
@@ -26,11 +24,10 @@ const numOfRows = 12;
 const mountain_keyword = ``;
 
 
-
+let keyword = "";
 
 // 산 리스트를 가져오는 함수
 const getMntiList = async () => {
-  const keyword = document.getElementById("SearchName").value;
   url = new URL(
     `${TRAIL_URL}openapi/service/cultureInfoService/gdTrailInfoOpenAPI?ServiceKey=${MOUNTAINS_KEY}&numOfRows=${numOfRows}&searchMtNm=${keyword}&_type=json`
   );
@@ -44,8 +41,10 @@ const getMntiList = async () => {
   for (let i = 0; i < codeList.length; i++) {
     await getMntiImg(codeList[i], i);
   }
-  await render();
+  render();
+  paginationRender();
 };
+getMntiList()
 
 const getMntiImg = async (mntncd, index) => {
   url = new URL(
@@ -55,60 +54,10 @@ const getMntiImg = async (mntncd, index) => {
   const response = await fetch(url);
   const data = await response.json();
   let imgFileInfo = data.response.body.items.item;
-  if (imgFileInfo !== undefined) {
-    if (imgFileInfo[0] === undefined) {
-      imgList[index] = `https://static.vecteezy.com/system/resources/thumbnails/005/337/799/small/icon-image-not-found-free-vector.jpg`; // 이미지가 없는 경우 noimage사진출력
-    } else {
-      imgList[index] = `http://www.forest.go.kr/images/data/down/mountain/${imgFileInfo[0].imgfilename}`;
-    }
-  } else if (imgFileInfo === undefined) {
-    imgList[index] = `https://static.vecteezy.com/system/resources/thumbnails/005/337/799/small/icon-image-not-found-free-vector.jpg`;
-  }
+  imgList[index] = (Array.isArray(imgFileInfo) && imgFileInfo.length > 0)
+    ? `http://www.forest.go.kr/images/data/down/mountain/${imgFileInfo[0].imgfilename}`
+    : `https://static.vecteezy.com/system/resources/thumbnails/005/337/799/small/icon-image-not-found-free-vector.jpg`;
 };
-
-
-
-
-// 검색 창에 입력 후 산 목록 가져오기
-const getMntiListByKeyword = async () => {
-  const keyword = document.getElementById("SearchName").value;
-  if (keyword == ``) {
-    return;
-  }
-  url = new URL(
-    `${TRAIL_URL}openapi/service/cultureInfoService/gdTrailInfoOpenAPI?ServiceKey=${MOUNTAINS_KEY}&numOfRows=${numOfRows}&searchMtNm=${keyword}&_type=json`
-  );
-  pageNo = 1;
-  url.searchParams.set("pageNo", pageNo)
-  const response = await fetch(url);
-  const data = await response.json();
-  if(data.response.body.items == '') {
-    errorRender(keyword)
-    return;
-  }
-  mntiList = data.response.body.items.item;
-  render()
-  document.getElementById("SearchName").value = ``;
-  searchButton.addEventListener("click", getMntiListByKeyword)
-};
-
-
-
-//검색 창 엔터키로 입력 기능
-document.getElementById("SearchName").addEventListener("keyup", (enterKeyCode) => {
-  let enterKey = enterKeyCode.code;
-  if (enterKey == "Enter" || enterKey == "NumpadEnter") {
-    if(document.getElementById("SearchName").value == "") {
-      return;
-    } else if(document.getElementById("SearchName").value) {
-      getMntiListByKeyword()
-      document.getElementById("SearchName").value = ``;
-    }
-  }
-})
-
-
-
 
 // 산 리스트와 이미지를 렌더링하는 함수
 const render = () => {
@@ -120,15 +69,15 @@ const render = () => {
       <div class="Text">
       <h4 class="Name">${mnti.mntnm}</h4>
       </div>
-      <a href="list.html?page=details&mountain_keyword="${mnti.mntnm}"></a>
+      <a href="index.html?page=details&searchWrd=${mnti.mntnm}"></a>
       </article>
       `;
     })
     .join("");
   document.querySelector(".MountainGroup").innerHTML = mntiHTML;
   paginationRender();
+  makeEventListener();
 };
-
 
 
 
@@ -178,15 +127,14 @@ const paginationRender = async() => {
   document.querySelector(".pagination").innerHTML = pagiNationHTML;
   document.querySelectorAll(".page-item").forEach((item) => {
     item.addEventListener("click", (event) => {
-      const pageNum = parseInt(event.target.getAttribute("pageNum"));
-      moveToPage(pageNum)
+      const pageNum = parseInt(event.currentTarget.querySelector("a").getAttribute("pageNum"));
+      moveToPage(pageNum);
     });
   });
 }
 const moveToPage = (pageNum) => {
   pageNo = pageNum;
   getMntiList();
-  console.log(pageNum)
 }
 
 
@@ -198,6 +146,47 @@ const errorRender = (text) => {
 }
 
 
-getMntiList();
+// 검색 창에 입력 후 산 목록 가져오기
+const getMntiListByKeyword = async () => {
+  const keyword = document.getElementById("SearchName").value;
+  if (keyword == ``) {
+    return;
+  }
+  url = new URL(
+    `${TRAIL_URL}openapi/service/cultureInfoService/gdTrailInfoOpenAPI?ServiceKey=${MOUNTAINS_KEY}&numOfRows=${numOfRows}&searchMtNm=${keyword}&_type=json`
+  );
+  pageNo = 1;
+  url.searchParams.set("pageNo", pageNo)
+  const response = await fetch(url);
+  const data = await response.json();
+  if(data.response.body.items == '') {
+    errorRender(keyword)
+    return;
+  }
+  mntiList = Array.isArray(data.response.body.items.item) ? data.response.body.items.item : [data.response.body.items.item];
+  render()
+};
 
-document.querySelector(".ShowMountain .heading").addEventListener("click", getMntiList)
+
+
+//검색 창 엔터키로 입력 기능
+document.addEventListener("DOMContentLoaded", function () {
+  // 검색 창 엔터키로 입력 기능 설정
+  const searchNameInput = document.getElementById("SearchName");
+  if (searchNameInput) {
+    searchNameInput.addEventListener("keyup", (enterKeyCode) => {
+      let enterKey = enterKeyCode.code;
+      if (enterKey === "Enter" || enterKey === "NumpadEnter") {
+        if (searchNameInput.value.trim() !== "") {
+          getMntiListByKeyword();
+          searchNameInput.value = ``; // 검색 후 입력 필드 비우기
+        }
+      }
+    });
+  }
+});
+
+const makeEventListener = () => {
+  document.querySelector("#SearchButton").addEventListener("click", getMntiListByKeyword);
+  document.querySelector(".ShowMountain .heading").addEventListener("click", getMntiList);
+}

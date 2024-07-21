@@ -18,22 +18,27 @@ main {
 }
 
 section.SearchMountain {
-  padding: 50px 0;
   text-align: center;
   display: flex;
   justify-content: center;
+  border-radius: 50px;
+  width: 33.33%;
+  margin: 0 auto;
+  margin-top: 130px;
+  position: relative;
+  border: 1px solid #ccc;
 }
 
 input[id="SearchName"] {
-  width: 33.33%;
+  width: 100%;
   line-height: 30px;
   text-align: center;
   height: 40px;
   outline: none;
-  border: 2px solid #000;
-  border-radius: 50px 0 0 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 50px;
 }
-
 input[id="SearchName"]::placeholder {
   opacity: 1;
   visibility: visible;
@@ -48,12 +53,14 @@ input[id="SearchName"]:focus::placeholder {
 button[id="SearchButton"] {
   border: none;
   font-size: 24px;
-  color: #fff;
   height: 40px;
-  background-color: #000;
   cursor: pointer;
   border-radius: 0 50px 50px 0;
   width: 50px;
+  color: #ccc;
+  background-color: #fff;
+  position: absolute;
+  right: 0;
 }
 
 section.ShowMountain {
@@ -165,11 +172,26 @@ ul.pagination {
 /* ##### responsive CSS ##### */
 @media (max-width: 992px) {
   /* 검색 */
-  input[id="SearchName"] {
+  section.SearchMountain {
     width: calc(100% - 50px);
   }
   /* 산목록 */
   .Mountain {
   width: calc((100% - 40px) / 3);
+  }
+}
+@media (max-width: 768px) {
+  /* 산목록 */
+  .Mountain {
+  width: calc((100% - 20px) / 2);
+  }
+}
+@media (max-width: 576px) {
+  /* 산목록 */
+  .Mountain {
+  width: 100%;
+  }
+  .page-item {
+    margin: 0;
   }
 }

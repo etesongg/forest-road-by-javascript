@@ -6,11 +6,12 @@ const TRAIL_URL = config.URL.trail_url;
 const WEATHER_URL = config.URL.weather_url;
 const WEATHER_KEY = config.KEY.weather_key;
 
-let url = new URL(
-  `${MOUNTAINS_URL}1400000/service/cultureInfoService2/mntInfoOpenAPI2?_type=json&serviceKey=${MOUNTAINS_KEY}`
-);
+const queryParams = new URLSearchParams(window.location.search);
+const mountain_keyword = queryParams.get("searchWrd");
 
-const mountain_keyword = "한라산";
+let url = new URL(
+  `${MOUNTAINS_URL}1400000/service/cultureInfoService2/mntInfoOpenAPI2?_type=json&serviceKey=${MOUNTAINS_KEY}&searchWrd=${mountain_keyword}`
+);
 
 // 산 정보만 뽑을 경우
 const getMntData = async () => {
@@ -37,16 +38,19 @@ const getMntImgData = async (mntilistNo) => {
   const response = await fetch(url);
   const data = await response.json();
   console.log("getMntImgData", data);
-  const MntImgFile = Array.isArray(data.response.body.items.item)
-    ? data.response.body.items.item[0].imgfilename
-    : data.response.body.items.item.imgfilename;
+  const MntImgFile =
+    data.response.body.items == ""
+      ? "static/img/not-mntimgfile.jpg"
+      : Array.isArray(data.response.body.items.item)
+      ? `http://www.forest.go.kr/images/data/down/mountain/${data.response.body.items.item[0].imgfilename}`
+      : `http://www.forest.go.kr/images/data/down/mountain/${data.response.body.items.item.imgfilename}`;
   displayMntInfoFigure(MntImgFile);
 };
 
 const displayMntInfoFigure = (MntImgFile) => {
   document.querySelector(
     ".details-mnt-information figure"
-  ).innerHTML = `<img src="http://www.forest.go.kr/images/data/down/mountain/${MntImgFile}" alt="">`;
+  ).innerHTML = `<img src="${MntImgFile}" alt="">`;
 };
 
 const getTrailData = async () => {
@@ -156,7 +160,7 @@ const translateToAddress = async (mntAdress) => {
       // 성공 시의 response 처리
       const { x, y } = response.v2.addresses[0];
       console.log(`y : ${x} x : ${y}`);
-      return initMap(y, x), callWeather(y, x);
+      return initMap(y, x);
     }
   );
 };
