@@ -58,7 +58,7 @@ button[id="SearchButton"] {
   border-radius: 0 50px 50px 0;
   width: 50px;
   color: #ccc;
-  background-color: #fff;
+  background-color: transparent;
   position: absolute;
   right: 0;
 }
