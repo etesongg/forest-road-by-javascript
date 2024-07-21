@@ -42,10 +42,6 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-.detailsInner {
-  width: 100%;
-}
-
 .mntCol-lg-6 {
   width: 50%;
 
@@ -60,9 +56,9 @@ body {
 }
 
 .mntText-lg-6 {
-  width: 500px;
+  width: 37%;
   /* height: 350px; */
-  margin-left: 0px;
+  margin-left: 0;
   margin-top: 40px;
 }
 
@@ -312,6 +308,22 @@ h1.sixth:hover:after {
 
 /*  태블릿 반응형*/
 
+@media (max-width: 1198px) {
+  .mntText-lg-6 {
+    width: 90%;
+
+    margin-left: 10%;
+    margin-top: 2%;
+  }
+
+  .mntCol-lg-6 {
+    width: 80%;
+
+    margin-top: 0;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 992px) {
   .details-mnt-information {
     margin-left: 20px;
@@ -335,8 +347,8 @@ h1.sixth:hover:after {
   .mntText-lg-6 {
     width: 500px;
     height: 350px;
-    margin-left: 0px;
-    margin-top: 40px;
+    margin-left: 10%;
+    margin-top: 2%;
   }
 
   .detailsInner {
@@ -379,6 +391,26 @@ h1.sixth:hover:after {
   .View_info_box_course_right__Eqk9V p {
     height: auto;
   }
+
+  .mntText-lg-6 {
+    width: 85%;
+    height: 350px;
+    margin-left: 10%;
+    margin-top: 3%;
+  }
 }
 @media (max-width: 576px) {
+  .mntCol-lg-6 {
+    width: 200px;
+
+    margin-top: 0;
+    margin: 0 auto;
+  }
+
+  .mntCol-lg-6 {
+    width: 80%;
+
+    margin-top: 0;
+    margin: 0 auto;
+  }
 }
