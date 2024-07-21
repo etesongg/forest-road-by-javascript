@@ -134,7 +134,7 @@ const translateToAddress = async (mntAdress) => {
         // 성공 시의 response 처리
         const {x, y} = response.v2.addresses[0]
         console.log(`y : ${x} x : ${y}`);
-        return initMap(y, x)
+        return initMap(y, x), fiveDayWeather(y, x)
     });
 }
 
@@ -161,26 +161,61 @@ const openTrailCourse = (etccourse) => {
     }); // 부트스트랩 popover 초기화 해줘야 함, html 태그 인식되도록 하기
 }
 
-// const callWeather = async (y, x) => {
-//     url = new URL(`${WEATHER_URL}data/2.5/weather?lat=${y}&lon=${x}&lang=kr&units=metric&appid=${WEATHER_KEY}`)
-//     const response = await fetch(url);
-//     const data = await response.json();
-//     console.log('callWeather',data)
-//     const currTemp = Math.round(data.main.temp * 10) / 10;
-// //   const currTime = getYmd10(data.dt);
-//   const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-// //   console.log("기준시간:", getYmd10(data.dt));
-//   displayWeather(currTemp, iconUrl)
-// }
+const fiveDayWeather = async (y, x) => {
+    const url = new URL(`${WEATHER_URL}data/2.5/forecast?lat=${y}&lon=${x}&lang=kr&units=metric&appid=${WEATHER_KEY}`);
+    const response = await fetch(url);
+    const data = await response.json();
+    
+    // 현재 시간대와 맞추기 위해 UTC 시간을 로컬 시간으로 변환
+    const localTimezoneOffset = new Date().getTimezoneOffset() * 60000;
 
-// const displayWeather = (currTemp, iconUrl) => {
-//     document.querySelector(".details-mnt-weather").innerHTML = `
-//     <div class="card">
-//         <div class="card-body">
-//             현재날씨
-//             <p class="card-text">${currTemp}</p>
-//         </div>
-//         <img src="${iconUrl}" class="card-img-top" alt="...">
-//     </div>
-//     `
-// }
+    // 현재 시간을 기준으로 날짜별 날씨 데이터를 그룹화합니다.
+    const groupedData = groupByDate(data.list, localTimezoneOffset);
+    
+    // 날짜별로 최고 온도와 최저 온도를 계산합니다.
+    const weatherSummary = Object.keys(groupedData).map(date => {
+        const forecasts = groupedData[date];
+        const maxTemp = Math.max(...forecasts.map(forecast => forecast.main.temp_max));
+        const minTemp = Math.min(...forecasts.map(forecast => forecast.main.temp_min));
+        const icon = forecasts[0].weather[0].icon; // 모든 forecast에서 첫 번째 아이콘 사용
+
+        return {
+            date,
+            maxTemp: Math.round(maxTemp * 10) / 10,
+            minTemp: Math.round(minTemp * 10) / 10,
+            iconUrl: `https://openweathermap.org/img/wn/${icon}@2x.png`
+        };
+    });
+
+    // 5일치 데이터만 추출합니다.
+    const fiveDaySummary = weatherSummary.slice(0, 5);
+
+    console.log("5일 날씨", fiveDaySummary);
+    displayWeatherSummary(fiveDaySummary);
+}
+
+// 날짜별로 데이터 그룹화 함수
+const groupByDate = (list, timezoneOffset) => {
+    return list.reduce((groups, forecast) => {
+        const utcDate = new Date(forecast.dt * 1000);
+        const localDate = new Date(utcDate - timezoneOffset).toISOString().split('T')[0];
+        if (!groups[localDate]) {
+            groups[localDate] = [];
+        }
+        groups[localDate].push(forecast);
+        return groups;
+    }, {});
+}
+
+// 날씨 정보를 표시하는 함수
+const displayWeatherSummary = (weatherSummary) => {
+    const weatherContainer = document.querySelector(".details-mnt-weather");
+    weatherContainer.innerHTML = weatherSummary.map(day => `
+        <div class="weather-day col card">
+            <p>${day.date}</p>
+            <img src="${day.iconUrl}" alt="날씨 아이콘">
+            <p>최고 온도: ${day.maxTemp + 3}°C</p>
+            <p>최저 온도: ${day.minTemp + 3}°C</p>
+        </div>
+    `).join("");
+};
