@@ -66,17 +66,19 @@ const displayMntInfoArticle = (info) => {
         <p><span>지역 |</span> <span>${info.areanm}</span></p>
         <p><span>소개 |</span> <span>${mntiDetails}</span></p>
         
+        <div class="collapse-info">
         <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    <i class="fa-solid fa-circle-info"></i> 추가 정보
-  </a>
-    <div class="collapse" id="collapseExample">
-    <div class="card card-body">
-        <b>추가로 100대명산 선정이유 | ${info.aeatreason}
-        <br>산정보개관 | ${info.overview}
-        <br>대중교통정보설명 | ${info.transport}
-        <br>주변관광정보설명 | ${info.tourisminf}</b>
-    </div>
-    </div>`;
+        <i class="fa-solid fa-circle-info"></i> 추가 정보
+    </a>
+        <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <b>추가로 100대명산 선정이유 | ${info.aeatreason}
+            <br>산정보개관 | ${info.overview}
+            <br>대중교통정보설명 | ${info.transport}
+            <br>주변관광정보설명 | ${info.tourisminf}</b>
+        </div>
+        </div>
+        </div>`;
     
     openTrailCourse(info.etccourse);
 }
