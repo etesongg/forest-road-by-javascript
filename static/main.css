@@ -154,7 +154,7 @@ body {
 }
 
 .trail-recommendation-section {
-    padding: 80px 0;
+    padding: 80px 0 0 0;
     background-color: rgba(255, 255, 255, 1);
     max-width: 100%;
     margin: 0 auto;
@@ -320,6 +320,7 @@ body {
     align-items: flex-start;
     text-align: left;
     padding: 20px;
+    cursor: pointer;
 }
 
 .theme-course-title {
