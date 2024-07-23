@@ -1,5 +1,4 @@
-function initializeApp() {
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     console.log("DOMContentLoaded event fired");
     // 섹션2) 산 목록 슬라이드로 보여주기
     initializeSwiper();
@@ -8,7 +7,7 @@ function initializeApp() {
     // 테마별 코스 큐레이션 모달창
     initializeThemeCourseModal();
   });
-
+  
   function initializeSwiper() {
     console.log("Initializing Swiper");
     new Swiper(".mySwiper", {
@@ -42,11 +41,11 @@ function initializeApp() {
       },
     });
   }
-
+  
   function initializeTrailRecommendation() {
     console.log("Initializing Trail Recommendation");
     showInfo("북한산");
-
+  
     const buttons = document.querySelectorAll(
       ".trail-recommendation-list button"
     );
@@ -59,7 +58,7 @@ function initializeApp() {
       });
     });
   }
-
+  
   function showInfo(place) {
     console.log(`Showing info for: ${place}`);
     const details = {
@@ -202,17 +201,17 @@ function initializeApp() {
         },
       ],
     };
-
+  
     const courses = details[place];
-
+  
     // courses가 undefined인 경우를 체크하고 빈 배열로 초기화
     if (!courses) {
       console.error(`No details found for ${place}`);
       return;
     }
-
+  
     let content = "";
-
+  
     courses.forEach((course) => {
       const difficultyClass = {
         "매우 어려움": "difficulty-very-difficult",
@@ -220,7 +219,7 @@ function initializeApp() {
         보통: "difficulty-moderate",
         쉬움: "difficulty-easy",
       }[course.difficulty];
-
+  
       content += `
         <div class="course-box">
           <div class="course-info">
@@ -244,7 +243,7 @@ function initializeApp() {
         </div>
       `;
     });
-
+  
     const recommendationDetails = document.getElementById(
       "recommendation-details"
     );
@@ -254,7 +253,7 @@ function initializeApp() {
       console.error('Element with id "recommendation-details" not found.');
     }
   }
-
+  
   // 테마별 코스 큐레이션 모달창
   function initializeThemeCourseModal() {
     console.log("Initializing Theme Course Modal");
@@ -263,20 +262,20 @@ function initializeApp() {
     const modalDescription = document.getElementById("modal-description");
     const modalCourses = document.getElementById("modal-courses");
     const span = document.getElementsByClassName("close")[0];
-
+  
     const courseItems = document.querySelectorAll(".main-theme-course-item");
-
+  
     courseItems.forEach(function (item) {
       item.onclick = function () {
         console.log(`Modal item clicked: ${this.getAttribute("data-title")}`);
         modal.style.display = "block";
         modalTitle.textContent = this.getAttribute("data-title");
         modalDescription.textContent = this.getAttribute("data-description");
-
+  
         const additionalInfo = JSON.parse(
           this.getAttribute("data-additional-info")
         );
-
+  
         modalCourses.innerHTML = additionalInfo
           .map(
             (info) => `
@@ -298,14 +297,14 @@ function initializeApp() {
           .join("");
       };
     });
-
+  
     if (span) {
       span.onclick = function () {
         console.log("Modal close button clicked");
         modal.style.display = "none";
       };
     }
-
+  
     window.onclick = function (event) {
       if (event.target == modal) {
         console.log("Clicked outside modal, closing modal");
@@ -313,6 +312,3 @@ function initializeApp() {
       }
     };
   }
-}
-
-initializeApp();
