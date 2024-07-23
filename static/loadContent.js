@@ -39,22 +39,24 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((response) => response.text())
     .then((data) => {
       mainDiv.innerHTML = data;
-      retrun loadScript(scriptToLoad});  // 메인 콘텐츠 로드 후 스크립트 로드
+      return loadScript(scriptToLoad); // 메인 콘텐츠 로드 후 스크립트 로드
     })
-.then(() => {
+    .then(() => {
       if (scriptToLoad !== "static/main.js") {
         return loadScript("static/main.js"); // 필요한 경우 main.js 추가 로드
       }
     })
-    .catch((error) => console.error("Error loading scripts:", error)); // 민영 추가 20240723
+    .catch((error) => console.error("Error loading scripts:", error));
 });
 
 // 스크립트 동적 로드 함수
 function loadScript(src) {
-  const script = document.createElement("script");
-  script.src = src;
-  script.async = false; // 스크립트가 순차적으로 실행되도록 합니다.
- script.onload = resolve; // 민영 추가
-    script.onerror = reject; // 민영 추가
-  document.body.appendChild(script);
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = src;
+    script.async = false; // 스크립트가 순차적으로 실행되도록 합니다.
+    script.onload = resolve;
+    script.onerror = reject;
+    document.body.appendChild(script);
+  });
 }
