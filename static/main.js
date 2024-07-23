@@ -89,7 +89,7 @@ function showInfo(place) {
       {
         title: "오색 코스",
         description: "조망을 잃고 정상을 빨리 만나는 코스",
-        difficulty: "매우 어려움",
+        difficulty: "어려움",
         time: "3시간",
         distance: "5.0km",
       },
@@ -103,7 +103,7 @@ function showInfo(place) {
       {
         title: "소공원 코스",
         description: "계곡을 얻고 다리를 잃는 최장 코스",
-        difficulty: "매우 어려움",
+        difficulty: "어려움",
         time: "5시간",
         distance: "11.0km",
       },
@@ -214,7 +214,6 @@ function showInfo(place) {
 
   courses.forEach((course) => {
     const difficultyClass = {
-      "매우 어려움": "difficulty-very-difficult",
       어려움: "difficulty-difficult",
       보통: "difficulty-moderate",
       쉬움: "difficulty-easy",
