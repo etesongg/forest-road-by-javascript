@@ -1,12 +1,15 @@
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOMContentLoaded event fired");
+console.log("main.js loaded");
+
+window.initializeMain = function () {
+  console.log("Initializing main.js");
+
   // 섹션2) 산 목록 슬라이드로 보여주기
   initializeSwiper();
   // 섹션3) 추천코스 보여주기
   initializeTrailRecommendation();
   // 테마별 코스 큐레이션 모달창
   initializeThemeCourseModal();
-});
+};
 
 function initializeSwiper() {
   console.log("Initializing Swiper");

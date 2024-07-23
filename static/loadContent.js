@@ -38,9 +38,24 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch(contentToLoad)
     .then((response) => response.text())
     .then((data) => {
-      mainDiv.innerHTML = data;
-      loadScript(scriptToLoad); // 메인 콘텐츠 로드 후 스크립트 로드
-    });
+      mainDiv.innerHTML = data; // HTML 콘텐츠를 로드
+
+      // main.html을 로드할 때 Bootstrap CSS를 제거
+      if (page === "main") {
+        const bootstrapStyles = document.querySelectorAll(
+          'link[href*="bootstrap.min.css"]'
+        );
+        bootstrapStyles.forEach((style) => style.remove());
+      }
+
+      return loadScript(scriptToLoad); // JavaScript 파일 로드
+    })
+    .then(() => {
+      if (typeof initializeMain === "function") {
+        initializeMain(); // 초기화 함수 호출
+      }
+    })
+    .catch((error) => console.error("Error loading content:", error));
 });
 
 // 스크립트 동적 로드 함수
