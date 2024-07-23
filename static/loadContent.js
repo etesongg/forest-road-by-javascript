@@ -39,7 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((response) => response.text())
     .then((data) => {
       mainDiv.innerHTML = data;
-      loadScript(scriptToLoad); // 메인 콘텐츠 로드 후 스크립트 로드
+      loadScript(scriptToLoad, function() {
+        if (scriptToLoad !== "static/main.js") {
+          loadScript("static/main.js");
+        }
+      });  // 메인 콘텐츠 로드 후 스크립트 로드  - 민영 추가 20240723
     });
 });
 
@@ -48,5 +52,6 @@ function loadScript(src) {
   const script = document.createElement("script");
   script.src = src;
   script.async = false; // 스크립트가 순차적으로 실행되도록 합니다.
+  script.onload = callback; // 스크립트 로드 완료 후 콜백 실행 - 민영 추가 20240723
   document.body.appendChild(script);
 }
